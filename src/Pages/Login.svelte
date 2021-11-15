@@ -1,20 +1,25 @@
 <script>
     import Car from "../Components/CarSVG.svelte"
+    let showPassword = false;
+
 </script>
 
-<h1>SHUber</h1>
-<Car/>
-<p>Aren't SHU glad you chose us?</p>
+<section id="TitleBar">
+    <h1>SHUber</h1>
+    <Car/>
+    <p>Aren't SHU glad you chose us?</p>
+</section>
+
 
 <form>Existing User
     <label for="userName">
         <input type="text" placeholder="Username / Email Address" name="userName" required>
     </label>
     <label for="password">
-        <input type="password" placeholder="Password" name="password" required>
-        <input type="checkbox" name="showPassword">
+        <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" required>
+        <input id="ShowPassword" type="checkbox" name="showPassword" bind:checked={showPassword}>
     </label>
-    <label for="rememberMe">
+    <label for="rememberMe">Remember Me
         <input type="checkbox" name="rememberMe">
     </label>
 
@@ -28,5 +33,19 @@
 
 
 <style>
-    
+    #TitleBar,
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    label{
+        position: relative;
+    }
+    #ShowPassword{
+        position: absolute;
+        right: 2%;
+        top: 25%;
+    }
 </style>
