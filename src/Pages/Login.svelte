@@ -9,7 +9,7 @@
     <section id="TitleBar">
         <h1>SHUber</h1>
         <Car/>
-        <p>Aren't SHU glad you chose us?</p>
+        <p>Aren't SHU glad you chose us? hahah</p>
     </section>
 
     <form>Existing User
