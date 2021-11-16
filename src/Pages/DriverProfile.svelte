@@ -1,13 +1,21 @@
 <script>
+    import ProfileHeader from "../Components/ProfileHeader.svelte";
     // JavaScript here
 </script>
+
+<ProfileHeader 
+src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 
+Name="Mel Gibson" 
+Description="SHUber Driver, Stunt Man" 
+Rating="-3.6"/>
+
 <body>
     <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
         <div class="card p-4">
             <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-                <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100"/>
-                <span class="drivername">Eleanor Pena</span> 
-                <span class="idd">@eleanorpena</span>
+                <button class="btn btn-secondary"> <img src="src\Images\mel_anger.jpg" alt="woops i broke" height="100" width="100"/>
+                <span class="drivername">Mel Gibson</span> 
+                <span class="idd">@melgibson</span>
                 <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
                     <span class="idd1">Oxc4c16a645_b21a</span> 
                     <span><i class="fa fa-copy"></i></span> 
@@ -113,9 +121,9 @@ body {
     font-size: 19px
 }
 
-hr .new1 {
-    border: 1px solid
-}
+/* hr .new1 {
+    border: 1px solid    << unused 
+} */
 
 .join {
     font-size: 14px;
