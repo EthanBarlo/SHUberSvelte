@@ -1,11 +1,15 @@
 <script>
 	import Login from "./Pages/Login.svelte";
+	import ChooseDestination from "./Pages/ChooseDestination.svelte";
+	import DriverProfile from "./Pages/DriverProflie.svelte";
+	import YourTrips from "./Pages/YourTrips.svelte";
 
 	let accountId;
+	let openPage;
 </script>
 
 <main>
-	<Login/>
+	<YourTrips/>
 </main>
 
 <style>

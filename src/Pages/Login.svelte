@@ -1,8 +1,9 @@
 <script>
     import Car from "../Components/CarSVG.svelte"
+    import ForgotPassword from "./ForgotPassword.svelte";
+    import CreateAccount from "./CreateAccount.svelte";
     let showPassword = false;
     let rememberMe = false;
-
 </script>
 
 <div id="PageContainer">
@@ -24,10 +25,10 @@
             <input type="checkbox" name="rememberMe" bind:checked={rememberMe}>
         </label>
         <button>Login</button>
-        <button>Forgot Password</button>
+        <button on:click={ForgotPassword}>Forgot Password</button>
     </form>
     <label for="signUpBtn">New User?
-        <button>Sign Up</button>
+        <button on:click={CreateAccount}>Sign Up</button>
     </label>
 </div>
 
