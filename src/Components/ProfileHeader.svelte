@@ -1,13 +1,14 @@
 <script>
-let src = "https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg";
+export let src = "https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg";
 
-export let Name = "Unassigned";
-export let Description = "Unassigned";
-export let Rating = "Unassigned";
+export let Size = "";   //If nothing; displays as 'big'
+export let Name = "";
+export let Description = "";
+export let Rating = "";
 
 </script>
 
-<div id="ProfileContainer">
+<div class="{Size}" id="ProfileContainer">
     <img {src} alt="Profile Picture">
     <h2>{Name}</h2>
     <h3>{Description}</h3>
@@ -17,6 +18,7 @@ export let Rating = "Unassigned";
 
 <style>
     #ProfileContainer{
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -41,7 +43,13 @@ export let Rating = "Unassigned";
         left: -40%;
     }
 
-  
- 
-    
+    #ProfileContainer.Small h3, 
+    #ProfileContainer.Small p, 
+    #ProfileContainer.Small p::after{
+        display: none;
+    }
+    #ProfileContainer.Small img{
+        width: 50%;
+    }
+
 </style>
