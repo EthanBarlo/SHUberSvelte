@@ -7,4 +7,9 @@ const app = new App({
 	}
 });
 
+window.initMap = function ready() {
+	app.$set({ mapReady: true })
+	console.log("hello");
+}
+
 export default app;
