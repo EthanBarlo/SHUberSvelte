@@ -4,8 +4,8 @@
 
   let container;
   let map;
-  export let zoom = 15;
-  export let center = { lat: 53.37862, lng: -1.46629 };
+  export let zoom;
+  export let center;
 
   onMount(async () => {
     map = new google.maps.Map(container, {

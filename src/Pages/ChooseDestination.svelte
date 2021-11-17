@@ -9,6 +9,6 @@
     <p>Where would you like to go?</p>
   </section>
   {#if mapReady}
-    <Map />
+    <Map zoom={4} center={ lat: 53.37862, lng: -1.46629 }/>
   {/if}
 </div>
