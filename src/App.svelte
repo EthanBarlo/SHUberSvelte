@@ -3,13 +3,14 @@
 	import ChooseDestination from "./Pages/ChooseDestination.svelte";
 	import DriverProfile from "./Pages/DriverProfile.svelte";
 	import YourTrips from "./Pages/YourTrips.svelte";
+import Notifications from "./Pages/Notifications.svelte";
 
 	let accountId;
 	let openPage;
 </script>
 
 <main>
-	<YourTrips/>
+	<Notifications/>
 </main>
 
 <style>
