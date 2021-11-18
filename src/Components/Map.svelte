@@ -11,16 +11,21 @@
     map = new google.maps.Map(container, {
       zoom,
       center,
+      disableDefaultUI: true,
+      draggable: false,
+      scrollwheel: false,
+      panControl: false,
+      clickableIcons: false
     });
   });
 </script>
 
-<p>Map is meant to be here</p>
 <div class="full-screen" bind:this={container} />
 
 <style>
   .full-screen {
-    width: 100vw;
-    height: 100vh;
+    width: calc(100vw - 24px);
+    height: 90vw;
   }
+
 </style>

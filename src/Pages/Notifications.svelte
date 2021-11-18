@@ -1,5 +1,5 @@
 <script>
-// import { each } from "svelte/internal";   <--- not sure what this is meant to do, it was greyed out - Ethanavich
+import { each } from "svelte/internal";  
 
     import ProfileHeader from "../Components/ProfileHeader.svelte";
 
