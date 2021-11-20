@@ -1,13 +1,25 @@
 <script>
+  import Router from "svelte-spa-router";
+
+  // Page imports
   import Login from "./Pages/Login.svelte";
   import ChooseDestination from "./Pages/ChooseDestination.svelte";
   import DriverProfile from "./Pages/DriverProfile.svelte";
   import YourTrips from "./Pages/YourTrips.svelte";
   import Notifications from "./Pages/Notifications.svelte";
 
+  // Router for navigating pages
+  const routes = {
+    '/': Login,
+    '/chooseDestination' : ChooseDestination,
+    '/driverProfile' : DriverProfile,
+    '/yourTrips' : YourTrips,
+    '/notifications' : Notifications,
+  }
+
   let accountId;
   let openPage;
-  export let mapReady;
+  let devMode = true;
 </script>
 
 <svelte:head>
@@ -19,7 +31,28 @@
 </svelte:head>
 
 <main>
-  <ChooseDestination {mapReady} />
+  {#if devMode}
+
+    <div id="DevelopmentContainer">
+      <nav>
+        {#each Object.entries(routes) as [key, value]}
+            <a href="#{key}">{value.name}</a>
+        {/each}
+      </nav>
+      
+      <div id="MobileViewer">
+        <Router {routes}/>
+      </div>
+    </div>
+
+  {:else}
+
+    <Router {routes}/>
+  {/if}
+
+
+
+  
 </main>
 
 <style>
@@ -28,5 +61,31 @@
     width: 100%;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  #DevelopmentContainer{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+  }
+
+  #MobileViewer{
+    border: .5em solid rgba(0, 0, 0, 0.8);
+    width: 375px;
+    max-width: 375px;
+    height: 812px;
+    max-height: 812px;
+    overflow: hidden;
+  }
+  /* Styles for nav */
+  nav{
+    flex-grow: 1;
+    background-color: cadetblue;
+    -webkit-user-drag: element;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

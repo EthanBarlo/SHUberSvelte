@@ -25,7 +25,7 @@
 <style>
   .full-screen {
     width: calc(100vw - 24px);
-    height: 90vw;
+    height: 90vh;
   }
 
 </style>

@@ -1,7 +1,5 @@
 <script>
   import Map from "../Components/Map.svelte";
-  import Map2 from "../Components/map2.svelte";
-  export let mapReady;
 </script>
 
 <div id="PageContainer">
@@ -9,8 +7,6 @@
     <h1>Book SHUber</h1>
     <p>Where would you like to go?</p>
   </section>
-  {#if mapReady}
-    <Map zoom={16} center={ {lat: 53.37862, lng: -1.46629} }/>
-    <!-- <Map2/> -->
-  {/if}
+
+  <Map zoom={16} center={ {lat: 53.37862, lng: -1.46629} }/>
 </div>
