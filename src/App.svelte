@@ -77,6 +77,7 @@
     max-width: 375px;
     height: 812px;
     max-height: 812px;
+    flex-shrink: 0;
     overflow: hidden;
   }
   /* Styles for nav */
