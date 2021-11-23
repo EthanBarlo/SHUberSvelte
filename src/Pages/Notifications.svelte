@@ -17,6 +17,9 @@ import { each } from "svelte/internal";
 
 <h1>Notifications</h1> 
 
+
+
+
 <div id="notifsGrid">
     {#each notifs as notif}
     <div class="timeContainer">
@@ -30,11 +33,11 @@ import { each } from "svelte/internal";
     {/each}
 </div>
 
-<ProfileHeader 
+<!-- <ProfileHeader 
 src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 
 Name="Bill Gates" 
 Size="Small"
-/>
+/> -->
 
 
 
@@ -75,8 +78,9 @@ Size="Small"
     .timeContainer{
         padding: 30%;
         margin: 3%;
+        margin-top: auto;
+        margin-bottom: auto;
         text-align: center;
-        align-content: center; 
-        /* can't quite get the time to align to the centre of its own container.. */
+       
     }
 </style>

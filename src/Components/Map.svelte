@@ -6,8 +6,14 @@
   let map;
   export let zoom;
   export let center;
+  export let destination;
+ 
 
-  onMount(async () => {
+  onMount(() => {
+    drawMap();
+  });
+  
+  async function drawMap(){
     map = new google.maps.Map(container, {
       zoom,
       center,
@@ -17,7 +23,27 @@
       panControl: false,
       clickableIcons: false
     });
-  });
+    
+
+    const destinationMarker = new google.maps.Marker({
+      position: {destination},
+      map: map,
+    });
+    
+    // The marker, positioned at current location
+    const currentLocationMarker = new google.maps.Marker({
+    position: center,
+    map: map,
+    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+    });
+      //car marker test
+    const car1 = new google.maps.Marker({
+    position: { lat: 53.384974, lng: -1.461184 },
+    map: map,
+icon: 'public\build\images\tinycar.png'    });
+  }
+
+  
 </script>
 
 <div class="full-screen" bind:this={container} />
@@ -27,5 +53,4 @@
     width: calc(100vw - 24px);
     height: 90vh;
   }
-
 </style>

@@ -3,23 +3,29 @@
 
   // Page imports
   import Login from "./Pages/Login.svelte";
+  import CreateAccount from "./Pages/CreateAccount.svelte";
+  import ForgotPassword from "./Pages/ForgotPassword.svelte";
   import ChooseDestination from "./Pages/ChooseDestination.svelte";
   import DriverProfile from "./Pages/DriverProfile.svelte";
   import YourTrips from "./Pages/YourTrips.svelte";
   import Notifications from "./Pages/Notifications.svelte";
+  import RideDetails from "./Pages/ChooseRideDestination.svelte";
 
   // Router for navigating pages
   const routes = {
     '/': Login,
+    '/createAccount' : CreateAccount,
+    '/forgotPassword' : ForgotPassword,
     '/chooseDestination' : ChooseDestination,
     '/driverProfile' : DriverProfile,
     '/yourTrips' : YourTrips,
     '/notifications' : Notifications,
+    '/rideDetails' : RideDetails,
   }
 
   let accountId;
   let openPage;
-  let devMode = true;
+  let devMode = false;
 </script>
 
 <svelte:head>
