@@ -25,14 +25,14 @@
 
   let accountId;
   let openPage;
-  let devMode = false;
+  let devMode = true;
 </script>
 
 <svelte:head>
   <script
     defer
     async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCta35ziwJVOq4UfEOVnqhv8_GhTQVyw4k&callback=initMap&libraries=&v=weekly">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCta35ziwJVOq4UfEOVnqhv8_GhTQVyw4k&callback=initMap&libraries=places">
   </script>
 </svelte:head>
 

@@ -1,14 +1,11 @@
 <script>
-  // import mapStyles from './map-styles'; // optional
   import { onMount } from "svelte";
-
   let container;
   let map;
   export let zoom;
   export let center;
   export let destination;
  
-
   onMount(() => {
     drawMap();
   });
@@ -24,7 +21,6 @@
       clickableIcons: false
     });
     
-
     const destinationMarker = new google.maps.Marker({
       position: {destination},
       map: map,
@@ -40,7 +36,7 @@
     const car1 = new google.maps.Marker({
     position: { lat: 53.384974, lng: -1.461184 },
     map: map,
-icon: 'public\build\images\tinycar.png'    });
+icon: 'https://media.discordapp.net/attachments/897034987575050290/912737288235130930/gps-navigation_4.png'});
   }
 
   

@@ -1,4 +1,5 @@
 import App from './App.svelte';
+import { IsGoogleLoaded, UserLocation } from './stores.js';
 
 const app = new App({
 	target: document.body,
@@ -8,8 +9,11 @@ const app = new App({
 });
 
 window.initMap = function ready() {
-	app.$set({ mapReady: true })
-	console.log("hello");
+	IsGoogleLoaded.update(() => true);
 }
 
+navigator.geolocation.getCurrentPosition(
+	position => UserLocation.update(
+		pos => position));
+		
 export default app;
