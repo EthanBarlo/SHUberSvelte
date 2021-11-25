@@ -27,6 +27,7 @@ export let Rating = "";
         margin: 0;
     }
     img{
+        margin: 15%;
         width: 40%;
         border-radius: 100%;
     }
@@ -43,13 +44,19 @@ export let Rating = "";
         left: -40%;
     }
 
+    #ProfileContainer.Small h2{
+        font-size: 1em;
+        position: absolute;
+        top: 0;
+    }
     #ProfileContainer.Small h3, 
     #ProfileContainer.Small p, 
     #ProfileContainer.Small p::after{
         display: none;
     }
     #ProfileContainer.Small img{
-        width: 50%;
+        margin-top: 40%;
+        width: 100%;
     }
 
 </style>

@@ -10,6 +10,7 @@
   import YourTrips from "./Pages/YourTrips.svelte";
   import Notifications from "./Pages/Notifications.svelte";
   import RideDetails from "./Pages/ChooseRideDestination.svelte";
+  import Wallet from "./Pages/Wallet.svelte";
 
   // Router for navigating pages
   const routes = {
@@ -21,6 +22,7 @@
     '/yourTrips' : YourTrips,
     '/notifications' : Notifications,
     '/rideDetails' : RideDetails,
+    '/wallet' : Wallet,
   }
 
   let accountId;

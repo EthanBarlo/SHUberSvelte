@@ -1,4 +1,4 @@
-<script>
+px<script>
     import ProfileHeader from "../Components/ProfileHeader.svelte";
     let tempAction = () => {
         console.log("Yay thing might happen?!");

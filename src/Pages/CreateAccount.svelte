@@ -21,5 +21,8 @@
 
 
 <style>
-    /* your styles go here */
+    #PageContainer{
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
 </style>
