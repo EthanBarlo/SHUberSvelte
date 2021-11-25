@@ -10,12 +10,12 @@
             const autocomplete = new google.maps.places.Autocomplete(input, {
                 fields: ['name', 'geometry'],
             });
-            autocomplete.addEventListener("place_changed", () => {
-                const place = autocomplete.getPlace();
-                if(!place.geometry.location){
-                    // If place not valid / found.
-                }
-            });
+            // autocomplete.addEventListener("place_changed", () => {
+            //     const place = autocomplete.getPlace();
+            //     if(!place.geometry.location){
+            //         // If place not valid / found.
+            //     }
+            // });
     }});
 
 </script>

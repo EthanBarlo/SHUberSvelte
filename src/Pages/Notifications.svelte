@@ -4,20 +4,10 @@ import { each } from "svelte/internal";
     import ProfileHeader from "../Components/ProfileHeader.svelte";
     import { Notifications } from '../stores.js';
 
-    let notificationArray;
+    let notifs;
     Notifications.subscribe(value => {
-        notificationArray = value;
+        notifs = value;
     });
-
-    let tempAction = () => {
-        console.log("some detail for you bruh");
-    }
-
-    let notifs = [
-    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Action:tempAction, },
-    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Action:tempAction},
-    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Action:tempAction},
-    ]
 
 </script>
 
@@ -27,7 +17,7 @@ import { each } from "svelte/internal";
 <div id="notifsGrid">
     {#each notifs as notif}
         <div class="timeContainer">
-            <h3>00:00</h3>
+            <h3>{notif.Time}</h3>
         </div>
         <div class="notifContainer">
             <section id="info">
@@ -44,14 +34,14 @@ import { each } from "svelte/internal";
 </div>
 
 <div class="end">
-    <h3>"bruh"</h3>
+    End of notification history.
 </div>
 
 
 
 <style>
     h1{
-        width: 70%;
+        width: 100%;
         margin-right: 30%;
         text-align: center;
         grid-area: title;
@@ -116,7 +106,6 @@ import { each } from "svelte/internal";
         padding: 5%;
         margin: 3%;
         height: auto;
-        /* width: auto; */
         border: .2em solid rgba(0, 0, 0, 0.8);
         font-size: 11px;
         text-align: left;
@@ -138,7 +127,8 @@ import { each } from "svelte/internal";
         font: italic;
         font-size: 1.2em;
         text-align: center;
-        position: absolute;
-    }
+        width: 100%;
+        margin-top: 10%; 
+       }
     
 </style>

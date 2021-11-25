@@ -47,7 +47,6 @@
             <a href="#{key}">{value.name}</a>
         {/each}
       </nav>
-      
       <div id="MobileViewer">
         <Router {routes}/>
       </div>
