@@ -42,8 +42,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        margin-right: 1%;
-        margin-top: 1%;
+        margin-right: 5%;
+        margin-top: 4%;
         z-index: 1;
     } 
     #NotifBell a{

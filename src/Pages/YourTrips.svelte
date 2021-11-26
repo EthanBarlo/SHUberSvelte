@@ -1,4 +1,5 @@
 <script>
+    import BackButton from "../Components/BackButton.svelte";
     import NotificationBell from "../Components/NotificationBell.svelte";
     import ProfileHeader from "../Components/ProfileHeader.svelte";
     let tempAction = () => {
@@ -16,7 +17,7 @@
 </script>
 
 
-
+<BackButton Destination='#/chooseDestination'/>
 
 <ProfileHeader 
 src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 

@@ -1,24 +1,31 @@
 <script>
-    import { onMount } from 'svelte';
-    import { draw } from 'svelte/transition';
+  import { onMount } from 'svelte';
+  import { draw } from 'svelte/transition';
 
-    let duration = 2000;
-    let delay = 200;
-    let showCar = false;
+  let duration = 2000;
+  let delay = 200;
+  let showCar = false;
 
-    // Called when the element is loaded to the dom
-    onMount(() => {
-		setTimeout(() => {
-            showCar = true;
-        }, 1000);
+  // Called when the element is loaded to the dom
+  onMount(() => {
+    setTimeout(() => {
+      showCar = true;
+    }, 1000);
 	});
 </script>
 
 <style>
-    path{
-        stroke: black;
-        
-    }
+  path{
+    stroke: black;
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+    animation: draw 2s linear forwards;
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+  }
+}
 </style>
 
 <!-- {#if showCar}

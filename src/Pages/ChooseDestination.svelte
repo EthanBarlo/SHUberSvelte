@@ -17,8 +17,9 @@
 
 let DestinationCoords = {lat: 0, lng: 0};
 DestinationLocation.subscribe(value => {
-  DestinationCoords = value;
-  // console.log({value});
+  DestinationCoords.lat = value.lat;
+  DestinationCoords.lng = value.lng;
+  console.log("UpdatedInAnotherFile",{value});
 });
 </script>
 

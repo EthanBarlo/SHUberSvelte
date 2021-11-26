@@ -1,4 +1,4 @@
-<script>
+<script >
     import { destroy_block } from 'svelte/internal';
     import NotificationBell from "../Components/NotificationBell.svelte";
     import { IsGoogleLoaded, DestinationLocation } from '../stores.js';
@@ -20,12 +20,10 @@
             google.maps.event.addListener(autocomplete, 'place_changed', ()=>{
                 place = autocomplete.getPlace();
                 if(place.geometry.location){
-                    DestinationLocation.update(value =>{
-                        console.log(place.geometry.location.lat());
-                        value.lat = place.geometry.location.lat();
-                        value.lng = place.geometry.location.lng();
-                        // console.log({value});
-
+                    console.log("PlaceLog -", {place});
+                    DestinationLocation.update((value) =>{
+                        value.lat = parseFloat(place.geometry.location.lat());
+                        value.lng = parseFloat(place.geometry.location.lng());
                     })
                 }
             });

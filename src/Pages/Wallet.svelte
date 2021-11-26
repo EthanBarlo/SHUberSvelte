@@ -1,5 +1,6 @@
 <script>
     import NotificationBell from "../Components/NotificationBell.svelte";
+    import BackButton from "../Components/BackButton.svelte";
 // import Login from "./Login.svelte";
 // <button on:click={Login}></button>
 
@@ -10,6 +11,8 @@ let paymentOptions = [
     {ID: 3, name: "NFT"},
 ]
 </script>
+
+<BackButton Destination='#/chooseDestination'/>
 
 <NotificationBell/>
 <div id="PageContainer">

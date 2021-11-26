@@ -1,5 +1,5 @@
 <script>
- 
+  import BackButton from "../Components/BackButton.svelte";
   import { each } from "svelte/internal";
 
   import ProfileHeader from "../Components/ProfileHeader.svelte";
@@ -12,7 +12,7 @@
 </script>
 
 <h1>Notifications</h1>
-
+<BackButton Destination='#/chooseDestination'/>
 
 <div id="notifsGrid">
   {#each notifs as notif}
