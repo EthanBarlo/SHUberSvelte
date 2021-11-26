@@ -1,16 +1,32 @@
 <script>
   import { onMount } from "svelte";
+  import { DestinationLocation } from '../stores.js';
   let container;
   let map;
+  let destinationMarker;
+  let mapLoaded = false;
   export let zoom;
   export let center;
-  export let destination;
+  export let showDestination = true;
  
+    DestinationLocation.subscribe(value => {
+      if(destinationMarker != null)
+        destinationMarker.setMap(null);
+
+      if(mapLoaded){
+        destinationMarker = new google.maps.Marker({
+        position: value,
+        map: map,
+        });
+      }
+    });
+
   onMount(() => {
     drawMap();
   });
-  
-  async function drawMap(){
+ 
+
+  function drawMap(){
     map = new google.maps.Map(container, {
       zoom,
       center,
@@ -20,12 +36,7 @@
       panControl: false,
       clickableIcons: false
     });
-    
-    const destinationMarker = new google.maps.Marker({
-      position: {destination},
-      map: map,
-    });
-    
+    mapLoaded = true;
     // The marker, positioned at current location
     const currentLocationMarker = new google.maps.Marker({
     position: center,

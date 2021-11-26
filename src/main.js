@@ -4,7 +4,7 @@ import { IsGoogleLoaded, UserLocation } from './stores.js';
 const app = new App({
 	target: document.body,
 	props: {
-		name: 'world'
+		
 	}
 });
 

@@ -27,7 +27,7 @@
 
   let accountId;
   let openPage;
-  let devMode = true;
+  let devMode = false;
 </script>
 
 <svelte:head>
