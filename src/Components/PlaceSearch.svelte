@@ -20,10 +20,10 @@
             google.maps.event.addListener(autocomplete, 'place_changed', ()=>{
                 place = autocomplete.getPlace();
                 if(place.geometry.location){
-                    console.log("PlaceLog -", {place});
-                    DestinationLocation.update((value) =>{
+                    DestinationLocation.update(value =>{
                         value.lat = parseFloat(place.geometry.location.lat());
                         value.lng = parseFloat(place.geometry.location.lng());
+                        return value;
                     })
                 }
             });

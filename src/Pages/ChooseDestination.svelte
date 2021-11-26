@@ -15,15 +15,11 @@
     pos.lng = value.lng;
   });
 
-let DestinationCoords = {lat: 0, lng: 0};
-DestinationLocation.subscribe(value => {
-  DestinationCoords.lat = value.lat;
-  DestinationCoords.lng = value.lng;
-  console.log("UpdatedInAnotherFile",{value});
-});
+  let DestinationCoords = {lat: 0, lng: 0};
+    DestinationLocation.subscribe(value => {
+    DestinationCoords = value;
+  });
 </script>
-
-
 
 
 <div id="PageContainer">
