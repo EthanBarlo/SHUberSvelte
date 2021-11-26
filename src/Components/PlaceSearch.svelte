@@ -14,16 +14,18 @@
         if (value) {
             autocomplete = new google.maps.places.Autocomplete(input, {
                 fields: ['name', 'geometry'],
+                componentRestrictions: {'country' : ['UK']},
             });
             
             google.maps.event.addListener(autocomplete, 'place_changed', ()=>{
                 place = autocomplete.getPlace();
                 if(place.geometry.location){
                     DestinationLocation.update(value =>{
-                        console.log("Updating With - " + {value})
-                        console.log({place})
-                        lat:place.geometry.location.lat
-                        lng:place.geometry.location.lng
+                        console.log(place.geometry.location.lat());
+                        value.lat = place.geometry.location.lat();
+                        value.lng = place.geometry.location.lng();
+                        // console.log({value});
+
                     })
                 }
             });

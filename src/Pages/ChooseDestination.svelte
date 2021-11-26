@@ -18,7 +18,7 @@
 let DestinationCoords = {lat: 0, lng: 0};
 DestinationLocation.subscribe(value => {
   DestinationCoords = value;
-  console.log({value});
+  // console.log({value});
 });
 </script>
 
