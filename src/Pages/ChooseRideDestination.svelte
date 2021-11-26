@@ -1,7 +1,10 @@
-<script>   </script>
+<script>  
+import NotificationBell from "../Components/NotificationBell.svelte"; 
+</script>
 
-<body>
-</body>
+<NotificationBell/>
+
+
 <style>
     /* your styles go here */
 </style>

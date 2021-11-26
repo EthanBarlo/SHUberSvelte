@@ -79,6 +79,7 @@
   }
 
   #MobileViewer{
+    position: relative;
     border: .5em solid rgba(0, 0, 0, 0.8);
     width: 375px;
     max-width: 375px;

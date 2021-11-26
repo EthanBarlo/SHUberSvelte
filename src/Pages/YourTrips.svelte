@@ -1,4 +1,5 @@
-px<script>
+<script>
+    import NotificationBell from "../Components/NotificationBell.svelte";
     import ProfileHeader from "../Components/ProfileHeader.svelte";
     let tempAction = () => {
         console.log("Yay thing might happen?!");
@@ -22,6 +23,8 @@ src="https://media.discordapp.net/attachments/897035019153977344/910205894397145
 Name="Bill Gates" 
 Description="SHUber User and Apple founder" 
 Rating="4.8"/>
+
+<NotificationBell/>
 
 <h1>Your Trips</h1>
 <div id="TripsGrid">
