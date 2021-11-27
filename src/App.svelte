@@ -11,6 +11,7 @@
   import Notifications from "./Pages/Notifications.svelte";
   import RideDetails from "./Pages/ChooseRideDestination.svelte";
   import Wallet from "./Pages/Wallet.svelte";
+  import TestPage from "./Pages/test.svelte";
 
   // Router for navigating pages
   const routes = {
@@ -23,6 +24,7 @@
     '/notifications' : Notifications,
     '/rideDetails' : RideDetails,
     '/wallet' : Wallet,
+    '/testPage' : TestPage,
   }
 
   let accountId;
@@ -53,7 +55,6 @@
     </div>
 
   {:else}
-
     <Router {routes}/>
   {/if}
 

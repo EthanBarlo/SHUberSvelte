@@ -2,24 +2,19 @@
   import Map from "../Components/Map.svelte";
   import PlaceSearch from "../Components/PlaceSearch.svelte";
   import NotificationBell from "../Components/NotificationBell.svelte";
-  import { IsGoogleLoaded, UserLocation } from '../stores.js';
+  import { IsGoogleLoaded } from '../stores.js';
 
   let hasGoogleLoaded;
   IsGoogleLoaded.subscribe(value => {
     hasGoogleLoaded = value;
   });
-
-  let pos = {lat: 0, lng: 0};
-  UserLocation.subscribe(value => {
-    pos.lat = value.lat;
-    pos.lng = value.lng;
-  });
-
 </script>
 
 
 <div id="PageContainer">
+
   <NotificationBell/> 
+
   <section id="TitleBar">
     <h1>Book SHUber</h1>
     <p>Where would you like to go?</p>

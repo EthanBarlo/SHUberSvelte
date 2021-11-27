@@ -6,7 +6,6 @@
   let destinationMarker;
   let mapLoaded = false;
   export let zoom;
-  export let showDestination = true;
  
   let userLatLng = { lat: 53.384974, lng: -1.461184 };
   UserLocation.subscribe(value => {
@@ -50,8 +49,8 @@
 
       directionsService.route(request, (result, status) => {;
         if(status == google.maps.DirectionsStatus.OK){
-          // output = {distance: result.routes[0].legs[0].distance.text,
-          //           duration: result.routes[0].legs[0].duration.text};
+          output = {distance: result.routes[0].legs[0].distance.text,
+                    duration: result.routes[0].legs[0].duration.text};
           directionsRenderer.setMap(map);
           directionsRenderer.setDirections(result);
         }
@@ -61,9 +60,6 @@
         }
       });
     }
-
-
-
 
   onMount(() => {
     drawMap();
@@ -101,6 +97,11 @@
 
   
 </script>
+
+
+{#if output != null}
+  <p>Distance: {output.distance} - Duration: {output.duration}</p>
+{/if}
 
 <div class="full-screen" bind:this={container} />
 
