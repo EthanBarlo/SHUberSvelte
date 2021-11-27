@@ -4,6 +4,7 @@ import { writable } from 'svelte/store';
 export const IsGoogleLoaded = writable(false);
 export const UserLocation = writable({lat:53.370491, lng:-1.321860});
 export const DestinationLocation = writable({lat:53.370491, lng:-1.321860});
+export const PreviousRides = writable([{origin:{lat:0, lng:0}, destination:{lat:0, lng:0}, travelTime:"15mins", driverID:1}]);
 export const Notifications = writable([
     {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip! lorem ipsum some text testig tesintai", Time: "00:00", Action:() => { console.log("some detail for you bruh"); }},
     {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:00", Action:() => { console.log("some detail for you bruh"); }},

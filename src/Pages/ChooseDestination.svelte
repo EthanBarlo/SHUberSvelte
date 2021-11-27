@@ -28,7 +28,7 @@
   <PlaceSearch/>
 
   {#if hasGoogleLoaded}
-      <Map zoom={12} center={pos}/>
+      <Map zoom={12}/>
   {/if}
  
 </div>
