@@ -5,7 +5,7 @@
 <div id="NotifBell"> 
     <a href='#/Notifications'>
         <svg
-            width="20pt"
+            width="30pt"
             viewBox="0 0 50 47.609169"
             preserveAspectRatio="xMidYMid meet"
             id="svg12">
@@ -42,8 +42,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        margin-right: 5%;
-        margin-top: 4%;
+        margin-right: 2%;
+        margin-top: 2%;
         z-index: 1;
     } 
     #NotifBell a{
