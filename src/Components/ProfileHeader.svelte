@@ -27,7 +27,7 @@ export let Rating = "";
         margin: 0;
     }
     img{
-        margin: 15%;
+        margin: 5%;
         width: 40%;
         border-radius: 100%;
     }
