@@ -23,7 +23,6 @@
     <p>Aren't SHU glad you chose us? hahah</p>
   </section>
   <div>
-    Existing User
     <label for="userName">
       <input
         type="text"
@@ -63,14 +62,21 @@
       >Remember Me
       <input type="checkbox" name="rememberMe" bind:checked={rememberMe} />
     </label>
-    <button on:click={ValidateUserCredentials}>Login</button>
-    <button onclick="location.href='./#/forgotPassword';"
-      >Forgot Password</button
+  </div>
+  <div class="buttons">
+    <button on:click={ValidateUserCredentials} class="loginPageButton"
+      >Login</button
+    >
+    <button
+      onclick="location.href='./#/forgotPassword';"
+      class="loginPageButton">Forgot Password</button
     >
   </div>
   <label for="signUpBtn"
     >New User?
-    <button onclick="location.href='./#/createAccount';">Sign Up</button>
+    <button onclick="location.href='./#/createAccount';" class="loginPageButton"
+      >Sign Up</button
+    >
   </label>
 </div>
 
@@ -98,5 +104,11 @@
     position: absolute;
     right: 2%;
     top: 25%;
+  }
+
+  .loginPageButton {
+    color: #fff;
+    background-color: #000;
+    border-radius: 5px;
   }
 </style>
