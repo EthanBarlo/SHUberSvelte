@@ -11,6 +11,8 @@
   import Notifications from "./Pages/Notifications.svelte";
   import Wallet from "./Pages/Wallet.svelte";
   import TestPage from "./Pages/test.svelte";
+  import Payment from "./Pages/Payment.svelte";
+  import EnterRideDetails from "./Pages/EnterRideDetails.svelte";
 
   // Router for navigating pages
   const routes = {
@@ -22,12 +24,14 @@
     '/yourTrips' : YourTrips,
     '/notifications' : Notifications,
     '/wallet' : Wallet,
+    '/payment' : Payment,
+    '/enterRideDetails' : EnterRideDetails,
     '/testPage' : TestPage,
   }
 
   let accountId;
   let openPage;
-  let devMode = true;
+  let devMode = false;
 </script>
 
 <svelte:head>

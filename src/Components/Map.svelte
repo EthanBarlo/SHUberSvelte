@@ -5,11 +5,16 @@
   let map;
   let destinationMarker;
   let mapLoaded = false;
+  let currentLocationMarker;
   export let zoom;
 
   let userLatLng = { lat: 53.384974, lng: -1.461184 };
   UserLocation.subscribe((value) => {
     userLatLng = value;
+    if (mapLoaded){
+      map.setCenter({lat:value.coords.latitude, lng:value.coords.longitude});
+      currentLocationMarker.setPosition({lat:value.coords.latitude, lng:value.coords.longitude});
+    }
   });
 
   let destinationLatLng;
@@ -79,7 +84,7 @@
     mapLoaded = true;
 
     // The marker, positioned at current location
-    const currentLocationMarker = new google.maps.Marker({
+    currentLocationMarker = new google.maps.Marker({
       position: userLatLng,
       map: map,
       icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",

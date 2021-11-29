@@ -1,4 +1,4 @@
-<<script>
+<script>
     import NotificationBell from "../Components/NotificationBell.svelte";
 </script>
 
