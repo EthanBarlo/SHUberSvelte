@@ -24,7 +24,6 @@ Rating="4"/>
 <h2>Your Trips</h2>
 <h2>Wallet</h2>
 <h2>Log out</h2>
-<h2>Your Trips</h2>
 
 
 </div>
@@ -37,7 +36,8 @@ Rating="4"/>
 }
 
 .Settings{
-    align-items: left   ;
+    align-items: left;
+    margin: 10%;
 
 }
 </style>
