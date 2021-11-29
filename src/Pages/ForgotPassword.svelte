@@ -2,9 +2,11 @@
   import Car from "../Components/CarSVG.svelte";
 </script>
 
-<div id="PageContainer">
+<div class="pageHeader">
+  <h1>SHUber</h1>
+</div>
+<div class="PageContainer">
   <section id="TitleBar">
-    <h1>SHUber</h1>
     <Car />
     <p>Aren't SHU glad you chose us?</p>
   </section>
@@ -18,16 +20,13 @@
         required
       />
     </label>
-    <button onclick="location.href='./#/Login';">Request Password Reset</button>
+    <button onclick="location.href='./#/Login';" class="resetButton"
+      >Request Password Reset</button
+    >
   </form>
 </div>
 
 <style>
-  .PageContainer {
-    width: 100%;
-    max-width: 100%;
-  }
-  .PageContainer,
   #TitleBar,
   form {
     display: flex;
@@ -36,5 +35,15 @@
   }
   label {
     position: relative;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  .resetButton {
+    color: #fff;
+    background-color: #000;
+    border-radius: 5px;
+    margin-top: 20px;
   }
 </style>
