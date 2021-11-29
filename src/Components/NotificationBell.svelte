@@ -1,10 +1,18 @@
 <script>
+    import { NotificationCounter } from '../stores.js';
 
+    let hasNotifications = false;
+    NotificationCounter.subscribe(value => {
+        if(value >= 1){
+            hasNotifications = true;
+        }
+    });
 </script>
 
 <div id="NotifBell"> 
     <a href='#/Notifications'>
         <svg
+            class={hasNotifications ? "StartShake" : ""}
             width="30pt"
             viewBox="0 0 50 47.609169"
             preserveAspectRatio="xMidYMid meet"
@@ -53,6 +61,17 @@
     #NotifBell svg{
         max-width: 300px;
     }  
+    .StartShake{
+        animation:shake 2s linear infinite;
+    }
+
+    @keyframes shake { 
+        0% { transform:rotate(0deg); }
+        25% { transform:rotate(-20deg); } 
+        75% { transform:rotate(20deg); }
+        100%{ transform:rotate(0deg); }
+    }
+
 </style>
 
 

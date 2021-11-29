@@ -1,9 +1,20 @@
 <script>
     import Car from "../Components/CarSVG.svelte"
-    import ForgotPassword from "./ForgotPassword.svelte";
-    import CreateAccount from "./CreateAccount.svelte";
     let showPassword = false;
     let rememberMe = false;
+
+    let userName;
+    let password;
+
+    function ValidateUserCredentials(){
+        if(userName != null && password != null){
+
+            window.location.href = "#/chooseDestination";
+        }
+    }
+
+
+
 </script>
 
 <div id="PageContainer">
@@ -13,22 +24,27 @@
         <p>Aren't SHU glad you chose us? hahah</p>
     </section>
 
-    <form>Existing User
+    <div>Existing User
         <label for="userName">
-            <input type="text" placeholder="Username / Email Address" name="userName" required>
+            <input type="text" placeholder="JoeBlogs123@email.com" name="userName" bind:value={userName} required>
         </label>
         <label for="password">
-            <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" required>
+            {#if showPassword}
+                <input type="text" placeholder="Password" name="password" bind:value={password} required>
+            {:else}
+                <input type="password" placeholder="Password" name="password" bind:value={password} required>
+            {/if}
+            
             <input id="ShowPassword" type="checkbox" name="showPassword" bind:checked={showPassword}>
         </label>
         <label for="rememberMe">Remember Me
             <input type="checkbox" name="rememberMe" bind:checked={rememberMe}>
         </label>
-        <button>Login</button>
-        <button on:click={ForgotPassword}>Forgot Password</button>
-    </form>
+        <button on:click|trusted={ValidateUserCredentials()}>Login</button>
+        <button href="#/forgotPassword">Forgot Password</button>
+    </div>
     <label for="signUpBtn">New User?
-        <button on:click={CreateAccount}>Sign Up</button>
+        <button href="#/createAccount">Sign Up</button>
     </label>
 </div>
 

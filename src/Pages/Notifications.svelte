@@ -3,7 +3,12 @@
   import { each } from "svelte/internal";
 
   import ProfileHeader from "../Components/ProfileHeader.svelte";
-  import { Notifications } from "../stores.js";
+  import { Notifications, NotificationCounter } from "../stores.js";
+
+  NotificationCounter.update(() => {
+    return 0;
+  });
+
 
   let notifs;
   Notifications.subscribe((value) => {
