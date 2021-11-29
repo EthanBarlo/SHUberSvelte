@@ -1,50 +1,91 @@
 <script>
-    import Car from "../Components/CarSVG.svelte"
-    let showPassword = false;
-    let rememberMe = false;
+  import Car from "../Components/CarSVG.svelte";
+  let showPassword = false;
+  let rememberMe = false;
 
-    let userName;
-    let password;
+  let userName;
+  let password;
 
-    function ValidateUserCredentials() {
-        if(userName != null && password != null){
-            window.location.href = "./#/chooseDestination";
-        }
+  function ValidateUserCredentials() {
+    if (userName != null && password != null) {
+      window.location.href = "./#/chooseDestination";
     }
+  }
 </script>
+
+<div class="loginHeader">
+  <h1>SHUber</h1>
+</div>
 
 <div id="PageContainer">
   <section id="TitleBar">
-    <h1>SHUber</h1>
     <Car />
     <p>Aren't SHU glad you chose us? hahah</p>
   </section>
-    <div>Existing User
-        <label for="userName">
-            <input type="text" placeholder="JoeBlogs123@email.com" name="userName" bind:value={userName} required>
-        </label>
-        <label for="password">
-            {#if showPassword}
-                <input type="text" placeholder="Password" name="password" bind:value={password} required>
-            {:else}
-                <input type="password" placeholder="Password" name="password" bind:value={password} required>
-            {/if}
-            
-            <input id="ShowPassword" type="checkbox" name="showPassword" bind:checked={showPassword}>
-        </label>
-        <label for="rememberMe">Remember Me
-            <input type="checkbox" name="rememberMe" bind:checked={rememberMe}>
-        </label>
-        <button on:click={ValidateUserCredentials}>Login</button>
-        <button onclick="location.href='./#/forgotPassword';">Forgot Password</button>
-    </div>
-    <label for="signUpBtn">New User?
-        <button onclick="location.href='./#/createAccount';">Sign Up</button>
+  <div>
+    Existing User
+    <label for="userName">
+      <input
+        type="text"
+        placeholder="JoeBlogs123@email.com"
+        name="userName"
+        bind:value={userName}
+        required
+      />
     </label>
+    <label for="password">
+      {#if showPassword}
+        <input
+          type="text"
+          placeholder="Password"
+          name="password"
+          bind:value={password}
+          required
+        />
+      {:else}
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          bind:value={password}
+          required
+        />
+      {/if}
+
+      <input
+        id="ShowPassword"
+        type="checkbox"
+        name="showPassword"
+        bind:checked={showPassword}
+      />
+    </label>
+    <label for="rememberMe"
+      >Remember Me
+      <input type="checkbox" name="rememberMe" bind:checked={rememberMe} />
+    </label>
+    <button on:click={ValidateUserCredentials}>Login</button>
+    <button onclick="location.href='./#/forgotPassword';"
+      >Forgot Password</button
+    >
+  </div>
+  <label for="signUpBtn"
+    >New User?
+    <button onclick="location.href='./#/createAccount';">Sign Up</button>
+  </label>
 </div>
 
-
 <style>
+  .loginHeader {
+    background-color: #000;
+    height: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
   #PageContainer {
     height: 100%;
     max-height: 100%;
@@ -52,7 +93,7 @@
     max-width: 100%;
   }
   #PageContainer,
-  #TitleBar{
+  #TitleBar {
     display: flex;
     flex-direction: column;
     align-items: center;
