@@ -17,14 +17,12 @@
 
 </script>
 
-<NavBar />
 <div id="PageContainer">
   <section id="TitleBar">
     <h1>SHUber</h1>
     <Car />
     <p>Aren't SHU glad you chose us? hahah</p>
   </section>
-
     <div>Existing User
         <label for="userName">
             <input type="text" placeholder="JoeBlogs123@email.com" name="userName" bind:value={userName} required>
@@ -47,30 +45,6 @@
     <label for="signUpBtn">New User?
         <button onclick="location.href='./#/createAccount';">Sign Up</button>
     </label>
-    <label for="password">
-      <input
-        type={showPassword ? "text" : "password"}
-        placeholder="Password"
-        name="password"
-        required
-      />
-      <input
-        id="ShowPassword"
-        type="checkbox"
-        name="showPassword"
-        bind:checked={showPassword}
-      />
-    </label>
-    <label for="rememberMe"
-      >Remember Me
-      <input type="checkbox" name="rememberMe" bind:checked={rememberMe} />
-    </label>
-    <button>Login</button>
-    <button on:click={ForgotPassword}>Forgot Password</button>
-  <label for="signUpBtn"
-    >New User?
-    <button on:click={CreateAccount}>Sign Up</button>
-  </label>
 </div>
 
 <style>
