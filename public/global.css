@@ -17,6 +17,13 @@ body {
     margin: 0;
   }
 
+  .pageHeader {
+    background-color: #000;
+    height: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
   .PageContainer{
 	  height: 100%;
 	  padding: 5%;

@@ -13,7 +13,7 @@
   }
 </script>
 
-<div class="loginHeader">
+<div class="pageHeader">
   <h1>SHUber</h1>
 </div>
 
@@ -75,13 +75,6 @@
 </div>
 
 <style>
-  .loginHeader {
-    background-color: #000;
-    height: 50px;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-
   h1 {
     margin: 0;
   }
