@@ -98,14 +98,9 @@
   }
 
   .card-details {
-    /* display: block; */
     width: 90%;
     display: inline;
-    /* margin: 0 auto; */
   }
-
-  /* .row {
-  } */
 
   .shortInput {
     width: 50%;
@@ -126,6 +121,16 @@
   }
 
   .payButton {
-    margin: 15px auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+  }
+
+  /* MEDIA QUERIES */
+  @media only screen and (min-width: 768px) {
+    .PageContainer {
+      width: 50%;
+      margin: 0 auto;
+    }
   }
 </style>
