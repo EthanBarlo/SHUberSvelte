@@ -1,139 +1,68 @@
 <script>
     import ProfileHeader from "../Components/ProfileHeader.svelte";
     import NotificationBell from "../Components/NotificationBell.svelte";
-    // JavaScript here
+    import BackButton from "../Components/BackButton.svelte";
+
+
+    let reviews = [
+        {reviewText:"This guy is a fucking chad", timeStamp: "2 days ago"},
+        {reviewText:"He terrified me, and I'm a hairy 6ft 9 lumberjack", timeStamp: "4 days ago"},
+        {reviewText:"Not bad, his car was covered in crumbs though..", timeStamp: "1 week ago"},
+    ]
 </script>
 
 <NotificationBell/>
+<BackButton Destination='#/chooseDestination'/>
+
 <ProfileHeader 
 src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 
 Name="Mel Gibson" 
 Description="SHUber Driver, Stunt Man" 
 Rating="-3.6"/>
 
-<body>
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-        <div class="card p-4">
-            <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-                <button class="btn btn-secondary"> <img src="src\Images\mel_anger.jpg" alt="woops i broke" height="100" width="100"/>
-                <span class="drivername">Mel Gibson</span> 
-                <span class="idd">@melgibson</span>
-                <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
-                    <span class="idd1">Oxc4c16a645_b21a</span> 
-                    <span><i class="fa fa-copy"></i></span> 
-                </div>
-                <div class="d-flex flex-row justify-content-center align-items-center mt-3"> 
-                    <span class="number">1069 
-                        <span class="follow">Followers</span>
-                    </span> 
-                </div>
-                <div class=" d-flex mt-2"> 
-                    <button class="btn1 btn-dark">Edit Profile</button> 
-                </div>
-                <div class="text mt-3"> 
-                    <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> 
-                </div>
-                <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> 
-                    <span><i class="fa fa-twitter"></i></span> 
-                    <span><i class="fa fa-facebook-f"></i></span> 
-                    <span><i class="fa fa-instagram"></i></span> 
-                    <span><i class="fa fa-linkedin"></i></span> 
-                </div>
-                <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2011</span> </div>
-            </div>
-        </div>
-    </div>
-</body>
+<h1>Reviews</h1>
 
+
+{#each reviews as review}
+     <div class="reviewContainer">
+        <h2>{review.reviewText}</h2>
+        <p>{review.timeStamp}</p>
+     </div>
+     {/each}
+
+
+ 
 <style>
-    /* your styles go here */
-    * {
-    margin: 0;
-    padding: 0;
+
+h1{
+        width: 100%;
+        text-align: center;
+        font-size: 1.2em;
 }
 
-body {
-    background-color: #000;
-}
-
-.card {
+h2{
     width: 100%;
-    height: 100%;
-    background-color: #efefef;
-    border: none;
-    cursor: pointer;
-    transition: all 0.5s;
+    text-align: left;
+    font-size: 0.8em;
+    top: 0;
+   
 }
 
-.image img {
-    transition: all 0.5s;
+p{
+    font-size: 0.8em;
+    text-align: left;
+    
 }
 
-.card:hover .image img {
-    transform: scale(1.5);
+.reviewContainer{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    padding: 2%;
+    margin: 10%;
+    border: 0.1em solid rgba(0, 0, 0, 0.8);
+    border-radius: 5%;
+
 }
 
-.btn {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-}
 
-.drivername {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.idd {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.idd1 {
-    font-size: 12px;
-}
-
-.number {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.follow {
-    font-size: 12px;
-    font-weight: 500;
-    color: #444444;
-}
-
-.btn1 {
-    height: 40px;
-    width: 150px;
-    border: none;
-    background-color: #000;
-    color: #aeaeae;
-    font-size: 15px;
-}
-
-.text span {
-    font-size: 13px;
-    color: #545454;
-    font-weight: 500;
-}
-
-.icons i {
-    font-size: 19px;
-}
-
-/* hr .new1 {
-    border: 1px solid    << unused 
-} */
-
-.join {
-    font-size: 14px;
-    color: #a0a0a0;
-    font-weight: bold;
-}
-
-.date {
-    background-color: #ccc;
-}
 </style>

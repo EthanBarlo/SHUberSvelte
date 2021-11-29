@@ -1,5 +1,5 @@
 <script>
-  export let Destination = "#/name.svelte";
+  export let Destination = "#/";
 </script>
 
 <div id="buttonCont">
