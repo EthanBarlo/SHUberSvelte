@@ -40,7 +40,7 @@
     var request = {
       origin: {
         lat: userLatLng.coords.latitude,
-        lng: userLatLng.coords.latitude,
+        lng: userLatLng.coords.longitude,
       },
       destination: destinationLatLng,
       travelMode: google.maps.TravelMode.DRIVING,
