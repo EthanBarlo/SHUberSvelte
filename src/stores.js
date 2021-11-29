@@ -21,12 +21,14 @@ export const CurrentUser = writable({
         {ID: 1, name:"Alan T Cardholder", lastDigits:"1234", cvc:"123", expDate:"07/25"},
     ], 
     rideHistory:[
-        {origin:{name:"sheffield", coords:{lat:0, lng:0}}, 
-        destination:{name:"meadowhall", coords:{lat:0, lng:0}},
-        travelTime:"6mins", 
-        cost:"£5",
-        driverID:1,
-        time:"180:00"
+        {
+            id:0,
+            origin:{name:"sheffield", coords:{lat:0, lng:0}}, 
+            destination:{name:"meadowhall", coords:{lat:0, lng:0}},
+            travelTime:"6mins", 
+            cost:"£5",
+            driverID:1,
+            time:"180:00"
         },  
     ], 
     favoriteLocations:[

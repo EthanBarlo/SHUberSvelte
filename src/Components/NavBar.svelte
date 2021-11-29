@@ -18,8 +18,9 @@
 <style>
   .navbar {
     position: relative;
-    background-color: #000;
+    background: #000;
     height: 6%;
+    width: 100%;
     margin: 0;
   }
 
