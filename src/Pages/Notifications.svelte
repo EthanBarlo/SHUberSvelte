@@ -3,7 +3,12 @@
   import { each } from "svelte/internal";
 
   import ProfileHeader from "../Components/ProfileHeader.svelte";
-  import { Notifications } from "../stores.js";
+  import { Notifications, NotificationCounter } from "../stores.js";
+
+  NotificationCounter.update(() => {
+    return 0;
+  });
+
 
   let notifs;
   Notifications.subscribe((value) => {
@@ -11,35 +16,41 @@
   });
 </script>
 
-<h1>Notifications</h1>
-<BackButton Destination='#/chooseDestination'/>
-
-<div id="notifsGrid">
-  {#each notifs as notif}
-    <div class="timeContainer">
-      <h3>{notif.Time}</h3>
-    </div>
-    <div class="notifContainer">
-      <section id="info">
-        <h2>{notif.Title}</h2>
-        <p>{notif.Detail}</p>
-        <button on:click|trusted={notif.Action}>View Details</button>
-      </section>
-      <section id="profile">
-        <ProfileHeader
-          id="profileImage"
-          src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
-          Name="Angry Mel"
-          Size="Small"
-        />
-      </section>
-    </div>
-  {/each}
+<div id="NotificationPage">
+  <h1>Notifications</h1>
+  <BackButton Destination='#/chooseDestination'/>
+  
+  <div id="notifsGrid">
+    {#each notifs as notif}
+      <div class="timeContainer">
+        <h3>{notif.Time}</h3>
+      </div>
+      <div class="notifContainer">
+        <section id="info">
+          <h2>{notif.Title}</h2>
+          <p>{notif.Detail}</p>
+          <button on:click|trusted={notif.Action}>View Details</button>
+        </section>
+        <section id="profile">
+          <ProfileHeader
+            id="profileImage"
+            src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
+            Name="Angry Mel"
+            Size="Small"
+          />
+        </section>
+      </div>
+    {/each}
+  </div>
+  
+  <div class="end">End of notification history.</div>
 </div>
 
-<div class="end">End of notification history.</div>
-
 <style>
+  #NotificationPage{
+    height: 100%;
+    overflow: hidden;
+  }
   h1 {
     width: 100%;
     margin-right: 30%;

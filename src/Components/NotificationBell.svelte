@@ -1,10 +1,17 @@
 <script>
+  import { NotificationCounter } from "../stores.js";
+
+  let hasNotifications = false;
+  NotificationCounter.subscribe((value) => {
+    hasNotifications = value >= 1;
+  });
 </script>
 
 <div id="NotifBell">
   <a href="#/Notifications">
     <svg
-      width="20pt"
+      class={hasNotifications ? "StartShake" : ""}
+      width="30pt"
       viewBox="0 0 50 47.609169"
       preserveAspectRatio="xMidYMid meet"
       id="svg12"
@@ -12,7 +19,7 @@
       <defs id="defs16" />
       <g
         transform="matrix(0.1,0,0,-0.1,-10,780.83776)"
-        fill="#ffffff"
+        fill="#000000"
         stroke="none"
         id="g10"
       >
@@ -46,8 +53,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 5%;
-    margin-top: 4%;
+    margin-right: 2%;
+    margin-top: 2%;
     z-index: 1;
   }
   #NotifBell a {
@@ -56,5 +63,23 @@
   }
   #NotifBell svg {
     max-width: 300px;
+  }
+  .StartShake {
+    animation: shake 2s linear infinite;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-20deg);
+    }
+    75% {
+      transform: rotate(20deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 </style>
