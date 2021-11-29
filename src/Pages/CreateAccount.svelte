@@ -84,4 +84,11 @@
     background-color: #000;
     border-radius: 5px;
   }
+
+  @media only screen and (min-width: 768px) {
+    label {
+      margin: 0 45%;
+      width: 200px;
+    }
+  }
 </style>
