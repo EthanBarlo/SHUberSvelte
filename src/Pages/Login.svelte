@@ -41,10 +41,10 @@
             <input type="checkbox" name="rememberMe" bind:checked={rememberMe}>
         </label>
         <button on:click|trusted={ValidateUserCredentials()}>Login</button>
-        <button href="#/forgotPassword">Forgot Password</button>
+        <button onclick="location.href='./#/forgotPassword';">Forgot Password</button>
     </div>
     <label for="signUpBtn">New User?
-        <button href="#/createAccount">Sign Up</button>
+        <button onclick="location.href='./#/createAccount';">Sign Up</button>
     </label>
 </div>
 

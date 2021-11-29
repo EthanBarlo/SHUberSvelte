@@ -1,6 +1,5 @@
 <script>
     import Car from "../Components/CarSVG.svelte"
-    import Login from "./Login.svelte";
 </script>
 
 
@@ -15,7 +14,7 @@
         <label for="Username/Email">
             <input type="text" placeholder="Username / Email Address" name="userName" required>
         </label>
-        <button on:click={Login}>Request Password Reset</button>
+        <button onclick="location.href='./#/Login';">Request Password Reset</button>
     </form>
 </div>
 

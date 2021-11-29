@@ -1,5 +1,6 @@
 <script>
-    // JavaScript here
+    let showPassword = false;
+
 </script>
 
 <div id="PageContainer">
@@ -17,6 +18,18 @@
         <p>Enter postcode</p>
         <input type="text" placeholder="Here to find address" name="postCode" required>
     </label>
+    <label for="userName">
+        <input type="text" placeholder="Username / Email Address" name="userName" required>
+    </label>
+    <label for="password">
+        <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" required>
+        <input id="ShowPassword" type="checkbox" name="showPassword" bind:checked={showPassword}>
+    </label>
+    <label for="signUpBtn">
+        <a href="#/ChooseDestination">
+            <button onclick="location.href='./#/chooseDestination';">Sign Up</button>
+        </a>
+    </label> 
 </div>
 
 
