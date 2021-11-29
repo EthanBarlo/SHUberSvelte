@@ -54,7 +54,7 @@
     top: 0;
     right: 0;
     margin-right: 2%;
-    margin-top: 0.6%;
+    margin-top: 1.2%;
     z-index: 1;
   }
   #NotifBell a {
