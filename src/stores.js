@@ -10,4 +10,45 @@ export const Notifications = writable([
     {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip! lorem ipsum some text testig tesintai", Time: "00:00", Action:() => { console.log("some detail for you bruh"); }},
     {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:00", Action:() => { console.log("some detail for you bruh"); }},
     {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:20", Action:() => { console.log("some detail for you bruh"); }},
-]);                                                                                            //TODO: in JS, make button clicks take us to a new page with details
+]); 
+
+export const CurrentUser = writable({
+    username:"admin", 
+    password:"admin", 
+    accountType:"user", 
+    paymentDetails:[
+        {ID: 0, name:"Visa", LastDigits:"1234"},
+    ], 
+    rideHistory:[
+        {origin:{name:"sheffield", coords:{lat:0, lng:0}}, 
+        destination:{name:"meadowhall", coords:{lat:0, lng:0}},
+        travelTime:"6mins", 
+        cost:"£5",
+        driverID:1,
+        time:"180:00"
+        },  
+    ], 
+    favoriteLocations:[
+        {lat: 0, lng:0}
+    ],
+});
+export const Users = writable([
+    {username:"admin", 
+    password:"admin", 
+    accountType:"user", 
+    paymentDetails:[
+        {ID: 0, name:"Visa", LastDigits:"1234"},
+    ], 
+    rideHistory:[
+        {origin:{name:"sheffield", coords:{lat:0, lng:0}}, 
+        destination:{name:"meadowhall", coords:{lat:0, lng:0}},
+        travelTime:"6mins", 
+        cost:"£5",
+        driverID:1,
+        time:"180:00"
+        },
+    ], 
+    favoriteLocations:[
+        {lat: 0, lng:0},
+    ]}
+]);                                                                                           //TODO: in JS, make button clicks take us to a new page with details

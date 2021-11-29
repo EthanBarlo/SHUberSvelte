@@ -1,6 +1,34 @@
 <script>
   let showPassword = false;
   import BackButton from "../Components/BackButton.svelte";
+  import { Users } from "../stores.js";
+
+  let firstName;
+  let lastName;
+  let userName;
+  let password;
+  let mobileNo;
+  let postCode;
+
+  function createAccount(){
+    if(userName != null && password != null){
+      Users.update(usersList => {
+        usersList.push({
+          username: userName,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          mobileNo: mobileNo,
+          postCode: postCode,
+          accountType: "passenger",
+          paymentDetails:[],
+          rideHistory:[],
+          favoriteLocations:[],
+        });
+        return usersList;
+      });
+    }
+  }
 </script>
 
 <BackButton Destination='/'/>
@@ -11,53 +39,40 @@
 
 <div class="PageContainer">
   <div class="accountCreationForm">
+
     <label for="Details">
       <p>Enter your details:</p>
-      <input type="text" placeholder="First Name" name="forename" required />
-      <input type="text" placeholder="Last Name" name="surname" required />
+      <input type="text" placeholder="First Name" name="forename" bind:value={firstName} required />
+      <input type="text" placeholder="Last Name" name="surname" bind:value={lastName} required />
     </label>
+
     <label for="Mobile">
       <p>Enter phone number:</p>
-      <input type="text" placeholder="+ 44" name="mobile" required />
+      <input type="text" placeholder="+ 44" name="mobile" bind:value={mobileNo} required />
     </label>
+
     <label for="Postcode">
       <p>Enter postcode:</p>
-      <input
-        type="text"
-        placeholder="Here to find address"
-        name="postCode"
-        required
-      />
+      <input type="text" placeholder="Here to find address" name="postCode" bind:value={postCode} required/>
     </label>
+
     <label for="userName">
-      <input
-        type="text"
-        placeholder="Username / Email Address"
-        name="userName"
-        required
-      />
+      <input type="text" placeholder="Username / Email Address" name="userName" bind:value={userName} required/>
     </label>
+
     <label for="password">
-      <input
-        type={showPassword ? "text" : "password"}
-        placeholder="Password"
-        name="password"
-        required
-      />
-      <input
-        id="ShowPassword"
-        type="checkbox"
-        name="showPassword"
-        class="checkBox"
-        bind:checked={showPassword}
-      />
+      {#if showPassword}
+         <input type="text" placeholder="Password" name="password" bind:value={password} required/>
+      {:else}
+        <input type="password" placeholder="Password" name="password" bind:value={password} required/>
+      {/if}
+      <input id="ShowPassword" type="checkbox" name="showPassword" class="checkBox" bind:checked={showPassword}/>
     </label>
+
     <label for="signUpBtn">
-      <a href="#/ChooseDestination">
-        <button onclick="location.href='./#/chooseDestination';">Sign Up</button
-        >
-      </a>
+      <button on:click={createAccount}>Sign Up</button>
     </label>
+
   </div>
 </div>
 
