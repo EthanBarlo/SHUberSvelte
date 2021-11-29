@@ -37,6 +37,10 @@
     position: relative;
   }
 
+  h1 {
+    margin: 0;
+  }
+
   h2 {
     text-align: center;
   }
