@@ -6,15 +6,11 @@
     let userName;
     let password;
 
-    function ValidateUserCredentials(){
+    function ValidateUserCredentials() {
         if(userName != null && password != null){
-
-            window.location.href = "#/chooseDestination";
+            window.location.href = "./#/chooseDestination";
         }
     }
-
-
-
 </script>
 
 <div id="PageContainer">
@@ -39,13 +35,14 @@
         <label for="rememberMe">Remember Me
             <input type="checkbox" name="rememberMe" bind:checked={rememberMe}>
         </label>
-        <button on:click|trusted={ValidateUserCredentials()}>Login</button>
+        <button on:click={ValidateUserCredentials}>Login</button>
         <button onclick="location.href='./#/forgotPassword';">Forgot Password</button>
     </div>
     <label for="signUpBtn">New User?
         <button onclick="location.href='./#/createAccount';">Sign Up</button>
     </label>
 </div>
+
 
 <style>
   #PageContainer {
