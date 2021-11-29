@@ -15,9 +15,10 @@ export const Notifications = writable([
 export const CurrentUser = writable({
     username:"admin", 
     password:"admin", 
-    accountType:"user", 
+    accountType:"user",
+    defaultPayment: 1, 
     paymentDetails:[
-        {ID: 0, name:"Visa", LastDigits:"1234"},
+        {ID: 1, name:"Alan T Cardholder", lastDigits:"1234", cvc:"123", expDate:"07/25"},
     ], 
     rideHistory:[
         {origin:{name:"sheffield", coords:{lat:0, lng:0}}, 
@@ -51,4 +52,4 @@ export const Users = writable([
     favoriteLocations:[
         {lat: 0, lng:0},
     ]}
-]);                                                                                           //TODO: in JS, make button clicks take us to a new page with details
+]);

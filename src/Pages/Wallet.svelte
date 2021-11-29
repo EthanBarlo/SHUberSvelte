@@ -1,86 +1,108 @@
 <script>
   import NavBar from "../Components/NavBar.svelte";
+  import { CurrentUser } from "../stores.js";
 
-  let paymentOptions = [
-    { ID: 0, name: "Visa" },
-    { ID: 1, name: "Mastercard" },
-    { ID: 2, name: "Bitcoin" },
-    { ID: 3, name: "NFT" },
-  ];
+  let defaultPayment;
+  let paymentDetails = [];
+  CurrentUser.subscribe(user => {
+    defaultPayment = user.defaultPayment;
+    paymentDetails = user.paymentDetails;
+  });
+
+
+
+  let nameOnCard;
+  let cardNumber;
+  let cvc;
+  let expirationDate;  
+  let incorrectMessage = "";
+  function AddPayment(){
+    if(nameOnCard != null
+      && cardNumber != null
+      && cvc != null
+      && expirationDate !=null){
+        CurrentUser.update(user => {
+          user.paymentDetails.push({
+            ID: paymentDetails.length + 1,
+            name: nameOnCard,
+            lastDigits: cardNumber.substr(cardNumber.length - 4),
+            cvc: cvc,
+            expDate: expirationDate,
+          });
+          return user;
+        });
+    }
+    else{
+      incorrectMessage = "Invalid or Missing card details"
+    }
+  }
+
 </script>
 
 <NavBar />
 <div class="PageContainer">
   <h1>Wallet</h1>
 
-  <h2>Select payment method:</h2>
-  <div id="savedPaymentMethod">
-    <select name="DefaultPayment" id="DefaultPayment">
-      {#each paymentOptions as { id, name }}
-        <option value={id}>{name}</option>
-      {/each}
-    </select>
-  </div>
-  <h3>Or</h3>
+  {#if paymentDetails.length >= 1}
+    <h2>Select payment method:</h2>
+    <div id="savedPaymentMethod">
+      <select name="DefaultPayment" id="DefaultPayment" bind:value={defaultPayment}>
+        <option disabled> Name : LastDigits : ExpiryDate</option>
+        {#each paymentDetails as payment}
+          <option value={payment.ID}>{payment.name} : {payment.lastDigits} : {payment.expDate}</option>
+        {/each}
+      </select>
+    </div>
+    <h3>Or</h3>
+  {/if}
+  
   <h2>Add a new payment method:</h2>
   <div id="addNewPayment">
     <p class="detailsHeading">Name on Card:</p>
-    <input
-      type="text"
-      placeholder="Alan T Cardholder"
-      name="cardName"
-      class="longInput"
-      required
-    />
+    <input type="text" placeholder="Alan T Cardholder" name="cardName" class="longInput" bind:value={nameOnCard} required/>
+
     <p class="detailsHeading">Card Number:</p>
-    <input
-      type="text"
-      placeholder="1234 5678 1234 5678"
-      name="cardNumber"
-      class="longInput"
-      required
-    />
+    <input type="text" placeholder="1234 5678 1234 5678" name="cardNumber" class="longInput" bind:value={cardNumber} required/>
+
     <div class="row">
       <div class="shortInput">
         <p class="detailsHeading">CVC:</p>
-        <input
-          type="text"
-          placeholder="123"
-          name="cvc"
-          class="card-details"
-          required
-        />
+        <input type="text" placeholder="123" name="cvc" class="card-details" bind:value={cvc} required/>
       </div>
+
       <div class="shortInput">
         <p class="detailsHeading">Expiration Date:</p>
-        <input
-          type="text"
-          placeholder="MM/YY"
-          name="expirationDate"
-          class="card-details"
-          required
-        />
+        <input type="text" placeholder="MM/YY" name="expirationDate" class="card-details" bind:value={expirationDate} required/>
       </div>
     </div>
-    <button class="button">Add Card</button>
+
+    <p>{incorrectMessage}</p>
+    <button class="button" on:click={AddPayment}>Add Card</button>
   </div>
+
   <button class="button payButton">Pay Now</button>
-</div>
+</div> 
 
 <style>
   .PageContainer {
     height: 100%;
     padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   h2,
   h3 {
     text-align: center;
+    margin: 1.5%;
   }
 
+  #savedPaymentMethod{
+    width: 80%;
+  }
   #DefaultPayment {
-    display: block;
-    margin: 0 auto;
+    width: 100%;
   }
 
   div#addNewPayment {
@@ -115,20 +137,20 @@
     background-color: #000;
     color: #fff;
     border-radius: 5px;
-    width: 100px;
+    width: 40%;
     display: block;
-    margin: 0 auto;
   }
 
   .payButton {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 150px;
+    padding: 5%;
+    width: 70%;
+    margin-top: 15%;
   }
 
   /* MEDIA QUERIES */
   @media only screen and (min-width: 768px) {
     .PageContainer {
+
       width: 50%;
       margin: 0 auto;
     }

@@ -1,6 +1,5 @@
 <script>
   import { slide } from "svelte/transition";
-  import BackButton from "../Components/BackButton.svelte";
   import NavBar from "../Components/NavBar.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
   import { Notifications, NotificationCounter } from "../stores.js";
@@ -17,7 +16,7 @@
 </script>
 
 <div id="NotificationPage"
- in:slide out:slide
+ in:slide out:slide={{duration:150}}
 >
   <NavBar BackDestination="#/chooseDestination"/>
   <h1>Notifications</h1>
