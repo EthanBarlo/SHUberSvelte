@@ -17,10 +17,10 @@
 
 <style>
   .navbar {
+    position: relative;
     background-color: #000;
     height: 6%;
     margin: 0;
-    position: relative;
   }
 
  
