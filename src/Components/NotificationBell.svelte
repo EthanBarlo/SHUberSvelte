@@ -3,9 +3,7 @@
 
     let hasNotifications = false;
     NotificationCounter.subscribe(value => {
-        if(value >= 1){
-            hasNotifications = true;
-        }
+        hasNotifications = value >= 1;
     });
 </script>
 
