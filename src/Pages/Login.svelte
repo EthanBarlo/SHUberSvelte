@@ -67,7 +67,6 @@
     </label>
     <button>Login</button>
     <button on:click={ForgotPassword}>Forgot Password</button>
-  </form>
   <label for="signUpBtn"
     >New User?
     <button on:click={CreateAccount}>Sign Up</button>
