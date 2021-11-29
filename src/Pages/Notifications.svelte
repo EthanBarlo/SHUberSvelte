@@ -1,4 +1,5 @@
 <script>
+  import { slide } from "svelte/transition";
   import BackButton from "../Components/BackButton.svelte";
   import NavBar from "../Components/NavBar.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
@@ -15,7 +16,9 @@
   });
 </script>
 
-<div id="NotificationPage">
+<div id="NotificationPage"
+ in:slide out:slide
+>
   <NavBar BackDestination="#/chooseDestination"/>
   <h1>Notifications</h1>
   <div id="notifsGrid">
