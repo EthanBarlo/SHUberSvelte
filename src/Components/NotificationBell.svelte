@@ -82,4 +82,10 @@
       transform: rotate(0deg);
     }
   }
+
+  @media only screen and (min-width: 768px) {
+    #NotifBell {
+      margin-top: 0.6%;
+    }
+  }
 </style>
