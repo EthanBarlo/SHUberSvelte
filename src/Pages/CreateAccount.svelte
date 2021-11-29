@@ -1,9 +1,8 @@
 <script>
-  import NavBar from "../Components/NavBar.svelte";
+  let showPassword = false;
 </script>
 
-<NavBar />
-<div class="PageContainer">
+<div id="PageContainer">
   <h2>Create an account</h2>
   <label for="Details">
     <p>Enter your details</p>
@@ -22,6 +21,33 @@
       name="postCode"
       required
     />
+  </label>
+  <label for="userName">
+    <input
+      type="text"
+      placeholder="Username / Email Address"
+      name="userName"
+      required
+    />
+  </label>
+  <label for="password">
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="Password"
+      name="password"
+      required
+    />
+    <input
+      id="ShowPassword"
+      type="checkbox"
+      name="showPassword"
+      bind:checked={showPassword}
+    />
+  </label>
+  <label for="signUpBtn">
+    <a href="#/ChooseDestination">
+      <button onclick="location.href='./#/chooseDestination';">Sign Up</button>
+    </a>
   </label>
 </div>
 

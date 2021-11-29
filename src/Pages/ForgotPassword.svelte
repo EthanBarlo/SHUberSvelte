@@ -1,11 +1,8 @@
 <script>
   import Car from "../Components/CarSVG.svelte";
-  import Login from "./Login.svelte";
-  import NavBar from "../Components/NavBar.svelte";
 </script>
 
-<NavBar />
-<div class="PageContainer">
+<div id="PageContainer">
   <section id="TitleBar">
     <h1>SHUber</h1>
     <Car />
@@ -21,7 +18,7 @@
         required
       />
     </label>
-    <button on:click={Login} class="button">Request Password Reset</button>
+    <button onclick="location.href='./#/Login';">Request Password Reset</button>
   </form>
 </div>
 
