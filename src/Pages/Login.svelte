@@ -1,14 +1,31 @@
 <script>
   import Car from "../Components/CarSVG.svelte";
+  import { Users, CurrentUser } from "../stores.js";
   let showPassword = false;
   let rememberMe = false;
 
   let userName;
   let password;
+  let incorrectMessage = "";
+
+  let usersList;
+  Users.subscribe(users => {
+    usersList = users;
+  });
 
   function ValidateUserCredentials() {
     if (userName != null && password != null) {
-      window.location.href = "./#/chooseDestination";
+      let user = usersList.find(account => (account.username == userName) && (account.password == password));
+      
+      if(user != null){
+        CurrentUser.update(() => {
+          return user;
+        });
+        window.location.href = "./#/chooseDestination";
+      }
+      else{
+        incorrectMessage = "Username or Password is incorrect!";
+      }
     }
   }
 </script>
@@ -23,60 +40,33 @@
     <p>Aren't SHU glad you chose us? hahah</p>
   </section>
   <div>
+
     <label for="userName">
-      <input
-        type="text"
-        placeholder="JoeBlogs123@email.com"
-        name="userName"
-        bind:value={userName}
-        required
-      />
+      <input type="text" placeholder="Email / Username" name="userName" bind:value={userName} required/>
     </label>
+
     <label for="password">
       {#if showPassword}
-        <input
-          type="text"
-          placeholder="Password"
-          name="password"
-          bind:value={password}
-          required
-        />
+        <input type="text" placeholder="Password" name="password" bind:value={password} required/>
       {:else}
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          bind:value={password}
-          required
-        />
+        <input type="password" placeholder="Password" name="password" bind:value={password} required/>
       {/if}
-
-      <input
-        id="ShowPassword"
-        type="checkbox"
-        name="showPassword"
-        bind:checked={showPassword}
-      />
+      <input id="ShowPassword" type="checkbox" name="showPassword" bind:checked={showPassword}/>
     </label>
+
     <label for="rememberMe"
       >Remember Me
       <input type="checkbox" name="rememberMe" bind:checked={rememberMe} />
     </label>
   </div>
+  <p>{incorrectMessage}</p>
   <div class="buttons">
-    <button on:click={ValidateUserCredentials} class="loginPageButton"
-      >Login</button
-    >
-    <button
-      onclick="location.href='./#/forgotPassword';"
-      class="loginPageButton">Forgot Password</button
-    >
+    <button on:click={ValidateUserCredentials}>Login</button>
+    <button onclick="location.href='./#/forgotPassword';">Forgot Password</button>
   </div>
-  <label for="signUpBtn"
-    >New User?
-    <button onclick="location.href='./#/createAccount';" class="loginPageButton"
-      >Sign Up</button
-    >
+
+  <label for="signUpBtn">New User?
+    <button onclick="location.href='./#/createAccount';">Sign Up</button>
   </label>
 </div>
 
@@ -97,16 +87,28 @@
     flex-direction: column;
     align-items: center;
   }
+
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   label {
     position: relative;
   }
+
+  .buttons{
+    display: initial;
+  }
+
   #ShowPassword {
     position: absolute;
     right: 2%;
     top: 25%;
   }
 
-  .loginPageButton {
+  button {
     color: #fff;
     background-color: #000;
     border-radius: 5px;
