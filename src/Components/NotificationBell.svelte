@@ -19,7 +19,7 @@
       <defs id="defs16" />
       <g
         transform="matrix(0.1,0,0,-0.1,-10,780.83776)"
-        fill="#000000"
+        fill="#fff"
         stroke="none"
         id="g10"
       >
@@ -54,7 +54,7 @@
     top: 0;
     right: 0;
     margin-right: 2%;
-    margin-top: 2%;
+    margin-top: 0.6%;
     z-index: 1;
   }
   #NotifBell a {

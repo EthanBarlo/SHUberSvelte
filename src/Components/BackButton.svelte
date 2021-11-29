@@ -21,7 +21,8 @@
     top: 0;
     left: 0;
     margin-left: 2%;
-    margin-top: 2%;
+    margin-top: 0.3%;
+    fill: #fff;
   }
 
   #buttonCont a {
