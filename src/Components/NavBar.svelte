@@ -1,12 +1,12 @@
 <script>
   import NotificationBell from "./NotificationBell.svelte";
   import BackButton from "./BackButton.svelte";
-  export let backLoc = "#/";
+  export let BackDestination = "#/";
 </script>
 
 <div class="navbar">
   <NotificationBell />
-  <BackButton Destination={backLoc}/>
+  <BackButton Destination={BackDestination}/>
 </div>
 
 <style>

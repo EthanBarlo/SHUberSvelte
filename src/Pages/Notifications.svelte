@@ -1,14 +1,13 @@
 <script>
   import BackButton from "../Components/BackButton.svelte";
-  import { each } from "svelte/internal";
-
+  import NavBar from "../Components/NavBar.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
   import { Notifications, NotificationCounter } from "../stores.js";
+
 
   NotificationCounter.update(() => {
     return 0;
   });
-
 
   let notifs;
   Notifications.subscribe((value) => {
@@ -17,10 +16,10 @@
 </script>
 
 <div id="NotificationPage">
+  <NavBar BackDestination="#/chooseDestination"/>
   <h1>Notifications</h1>
-  <BackButton Destination='#/chooseDestination'/>
-  
   <div id="notifsGrid">
+
     {#each notifs as notif}
       <div class="timeContainer">
         <h3>{notif.Time}</h3>
@@ -31,9 +30,9 @@
           <p>{notif.Detail}</p>
           <button on:click|trusted={notif.Action}>View Details</button>
         </section>
+
         <section id="profile">
           <ProfileHeader
-            id="profileImage"
             src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
             Name="Angry Mel"
             Size="Small"
@@ -41,6 +40,7 @@
         </section>
       </div>
     {/each}
+
   </div>
   
   <div class="end">End of notification history.</div>
@@ -69,13 +69,6 @@
     width: 100%;
     text-align: left;
     font-size: 1.2em;
-  }
-
-  #profileImage {
-    grid-area: image;
-    position: absolute;
-    right: 0;
-    margin-right: 5%;
   }
 
   p {
