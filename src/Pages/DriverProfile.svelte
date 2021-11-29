@@ -16,6 +16,8 @@
 <NotificationBell/>
 <BackButton Destination='#/chooseDestination'/>
 
+<h1>Driver Profile</h1>
+
 <ProfileHeader 
 src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 
 Name="Mel Gibson" 

@@ -1,6 +1,10 @@
 <script>
   import Car from "../Components/CarSVG.svelte";
+  import BackButton from "../Components/BackButton.svelte";
 </script>
+
+
+<BackButton Destination='/'/>
 
 <div class="pageHeader">
   <h1>SHUber</h1>

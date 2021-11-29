@@ -26,6 +26,11 @@ export let Rating = "";
     img, h2, h3, p{
         margin: 0;
     }
+    
+    h2{
+        font-size: 1.2em;
+    }
+
     img{
         margin: 5%;
         width: 40%;
@@ -45,7 +50,7 @@ export let Rating = "";
     }
 
     #ProfileContainer.Small h2{
-        font-size: 1em;
+        font-size: 1.2em;
         position: absolute;
         top: 0;
     }

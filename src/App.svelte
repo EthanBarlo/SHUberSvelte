@@ -7,11 +7,11 @@
   import ForgotPassword from "./Pages/ForgotPassword.svelte";
   import ChooseDestination from "./Pages/ChooseDestination.svelte";
   import DriverProfile from "./Pages/DriverProfile.svelte";
+  import UserProfile from "./Pages/UserProfile.svelte";
   import YourTrips from "./Pages/YourTrips.svelte";
   import Notifications from "./Pages/Notifications.svelte";
   import Wallet from "./Pages/Wallet.svelte";
   import TestPage from "./Pages/test.svelte";
-  import Payment from "./Pages/Payment.svelte";
   import EnterRideDetails from "./Pages/EnterRideDetails.svelte";
 
   // Router for navigating pages
@@ -21,10 +21,10 @@
     '/forgotPassword' : ForgotPassword,
     '/chooseDestination' : ChooseDestination,
     '/driverProfile' : DriverProfile,
+    '/userProfile' : UserProfile,
     '/yourTrips' : YourTrips,
     '/notifications' : Notifications,
     '/wallet' : Wallet,
-    '/payment' : Payment,
     '/enterRideDetails' : EnterRideDetails,
     '/testPage' : TestPage,
   }

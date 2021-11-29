@@ -1,6 +1,9 @@
 <script>
   let showPassword = false;
+  import BackButton from "../Components/BackButton.svelte";
 </script>
+
+<BackButton Destination='/'/>
 
 <div class="pageHeader">
   <h1>Create an account</h1>
