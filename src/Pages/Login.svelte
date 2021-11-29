@@ -52,8 +52,7 @@
     max-width: 100%;
   }
   #PageContainer,
-  #TitleBar,
-  form {
+  #TitleBar{
     display: flex;
     flex-direction: column;
     align-items: center;
