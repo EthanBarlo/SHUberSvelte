@@ -2,6 +2,7 @@
     import ProfileHeader from "../Components/ProfileHeader.svelte";
     import NotificationBell from "../Components/NotificationBell.svelte";
     import BackButton from "../Components/BackButton.svelte";
+    import NavBar from "../Components/NavBar.svelte";
 
 
     let reviews = [
@@ -11,6 +12,7 @@
     ]
 </script>
 
+<NavBar />
 <NotificationBell/>
 <BackButton Destination='#/chooseDestination'/>
 
@@ -58,7 +60,7 @@ p{
     display: grid;
     grid-template-rows: auto auto auto;
     padding: 2%;
-    margin: 10%;
+    margin: 5%;
     border: 0.1em solid rgba(0, 0, 0, 0.8);
     border-radius: 5%;
 

@@ -9,7 +9,6 @@
   import DriverProfile from "./Pages/DriverProfile.svelte";
   import YourTrips from "./Pages/YourTrips.svelte";
   import Notifications from "./Pages/Notifications.svelte";
-  import RideDetails from "./Pages/ChooseRideDestination.svelte";
   import Wallet from "./Pages/Wallet.svelte";
   import TestPage from "./Pages/test.svelte";
 
@@ -22,14 +21,13 @@
     '/driverProfile' : DriverProfile,
     '/yourTrips' : YourTrips,
     '/notifications' : Notifications,
-    '/rideDetails' : RideDetails,
     '/wallet' : Wallet,
     '/testPage' : TestPage,
   }
 
   let accountId;
   let openPage;
-  let devMode = false;
+  let devMode = true;
 </script>
 
 <svelte:head>
