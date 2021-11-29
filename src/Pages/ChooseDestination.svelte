@@ -24,7 +24,7 @@
 </div>
 
 <style>
-  #PageContainer {
+  .PageContainer {
     height: 100%;
     overflow: hidden;
   }
