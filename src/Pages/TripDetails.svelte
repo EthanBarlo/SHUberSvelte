@@ -8,15 +8,17 @@
   let currentUsersTrips = null;
   let selectedTrip = null;
   let driversList = null;
-  let data;
+  let data = null;
   let driver;
 
   CurrentUser.subscribe(user => {
     currentUsersTrips = user.rideHistory;
+    LoadTripData();
   });
 
   SelectedTrip.subscribe(value => {
     selectedTrip = value;
+    LoadTripData();
   });
 
   Drivers.subscribe(value => {
@@ -25,14 +27,9 @@
   });
 
   function LoadTripData(){
-
-    console.log(selectedTrip);
-    console.log(currentUsersTrips);
-    console.log(driversList);
-
     if(selectedTrip != null 
     && currentUsersTrips != null 
-    && driversList != null){
+    && driversList != null && data == null){
       data = currentUsersTrips.find((trip) => trip.id == selectedTrip);
       driver = driversList.find(d => d.id == data.driverID)
       tripLoaded = true;

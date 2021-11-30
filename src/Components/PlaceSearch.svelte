@@ -21,8 +21,9 @@
                 place = autocomplete.getPlace();
                 if(place.geometry.location){
                     DestinationLocation.update(value =>{
-                        value.lat = parseFloat(place.geometry.location.lat());
-                        value.lng = parseFloat(place.geometry.location.lng());
+                        value.name = place.name;
+                        value.coords.lat = parseFloat(place.geometry.location.lat());
+                        value.coords.lng = parseFloat(place.geometry.location.lng());
                         return value;
                     })
                 }

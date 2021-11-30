@@ -2,12 +2,29 @@
   import Map from "../Components/Map.svelte";
   import PlaceSearch from "../Components/PlaceSearch.svelte";
   import NavBar from "../Components/NavBar.svelte";
-  import { IsGoogleLoaded } from "../stores.js";
+  import { IsGoogleLoaded, DestinationLocation, UserLocation, CurrentUser } from "../stores.js";
+
+
+  let userLocation;
+  UserLocation.subscribe(value => {
+    userLocation = value;
+  });
+
+  let destinationLocation;
+  DestinationLocation.subscribe(value =>{
+    destinationLocation = value;
+  });
 
   let hasGoogleLoaded;
   IsGoogleLoaded.subscribe((value) => {
     hasGoogleLoaded = value;
   });
+
+  let currentUser;
+  CurrentUser.subscribe(user =>{
+    currentUser = user;
+  });
+
 </script>
 
 <NavBar BackDestination="#/UserProfile" showUserProfile="true" />
@@ -22,11 +39,12 @@
     <Map zoom={12} />
   {/if}
 </div>
-<button class="button">Confirm Ride</button>
+
 
 <style>
   .PageContainer {
     height: 80vh;
     text-align: center;
   }
+
 </style>

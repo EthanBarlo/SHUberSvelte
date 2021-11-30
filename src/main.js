@@ -14,6 +14,11 @@ window.initMap = function ready() {
 
 navigator.geolocation.getCurrentPosition(
 	position => UserLocation.update(
-		pos => position));
+		pos => {
+			return {
+				lat:position.coords.latitude, 
+				lng:position.coords.longitude
+			}
+		}));
 		
 export default app;

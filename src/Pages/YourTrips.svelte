@@ -37,7 +37,10 @@
          <div class="tripContainer">
            <h2>{trip.origin.name}➜{trip.destination.name}</h2>
            <section>
-             <p>{trip.Cost} : {trip.time}</p>
+             <div>
+               <p>{trip.cost}</p>
+                <p>{trip.time}</p>
+             </div>
              <button on:click|trusted={openTripDetails}>View Trip <p style="display:none;">{trip.id}</p></button>
            </section>
          </div>
@@ -66,7 +69,9 @@
     border-radius: 5%;
   }
 
-
+  p{
+    margin: 0;
+  }
   section{
     display: grid;
     grid-template-columns: 60% 30% 10%;

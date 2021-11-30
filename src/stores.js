@@ -3,8 +3,8 @@ import { writable } from 'svelte/store';
 // We can add in variables that are editable / accessible throughout the application here
 // Our own fake databaseS
 export const IsGoogleLoaded = writable(false);
-export const UserLocation = writable({lat:53.370491, lng:-1.321860});
-export const DestinationLocation = writable({lat:53.370491, lng:-1.321860});
+export const UserLocation = writable({lat:53.52644, lng:-1.63132});
+export const DestinationLocation = writable({name: "placeName", coords:{lat:53.41438, lng:-1.4113328}});
 export const SelectedTrip = writable(0);
 export const NotificationCounter = writable(1);
 export const Notifications = writable([
@@ -27,46 +27,6 @@ export const Users = writable([
         rideHistory:[
             {
                 id:0,
-                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
-                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
-                travelTime:"6mins", 
-                cost:"£5",
-                driverID:0,
-                time:"18:36",
-                status:"Ride Finished and paid for."
-            },
-            {
-                id:1,
-                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
-                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
-                travelTime:"6mins", 
-                cost:"£5",
-                driverID:0,
-                time:"18:36",
-                status:"Ride Finished and paid for."
-            },
-            {
-                id:2,
-                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
-                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
-                travelTime:"6mins", 
-                cost:"£5",
-                driverID:0,
-                time:"18:36",
-                status:"Ride Finished and paid for."
-            },
-            {
-                id:3,
-                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
-                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
-                travelTime:"6mins", 
-                cost:"£5",
-                driverID:0,
-                time:"18:36",
-                status:"Ride Finished and paid for."
-            },
-            {
-                id:4,
                 origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
                 destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
                 travelTime:"6mins", 

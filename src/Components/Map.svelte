@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { DestinationLocation, UserLocation } from "../stores.js";
+  import { DestinationLocation, UserLocation, CurrentUser } from "../stores.js";
   let container;
   let map;
   let destinationMarker;
@@ -8,30 +8,27 @@
   let currentLocationMarker;
   export let zoom;
 
+
   let userLatLng = { lat: 53.384974, lng: -1.461184 };
   UserLocation.subscribe((value) => {
     userLatLng = value;
     if (mapLoaded) {
-      map.setCenter({
-        lat: value.coords.latitude,
-        lng: value.coords.longitude,
-      });
-      currentLocationMarker.setPosition({
-        lat: value.coords.latitude,
-        lng: value.coords.longitude,
-      });
+      map.setCenter(userLatLng);
+      currentLocationMarker.setPosition(userLatLng);
     }
   });
 
+  let destinationLocation;
   let destinationLatLng;
   DestinationLocation.subscribe((value) => {
-    destinationLatLng = value;
+    destinationLocation = value;
+    destinationLatLng = value.coords;
 
     if (destinationMarker != null) destinationMarker.setMap(null);
 
     if (mapLoaded) {
       destinationMarker = new google.maps.Marker({
-        position: value,
+        position: destinationLatLng,
         map: map,
       });
 
@@ -49,10 +46,7 @@
 
   function CalculateRoute() {
     var request = {
-      origin: {
-        lat: userLatLng.coords.latitude,
-        lng: userLatLng.coords.longitude,
-      },
+      origin: userLatLng,
       destination: destinationLatLng,
       travelMode: google.maps.TravelMode.DRIVING,
       unitSystem: google.maps.UnitSystem.IMPERIAL,
@@ -61,12 +55,15 @@
     directionsService.route(request, (result, status) => {
       if (status == google.maps.DirectionsStatus.OK) {
         output = {
+          startAddress: result.routes[0].legs[0].start_address.split(',')[1],
           distance: result.routes[0].legs[0].distance.text,
           duration: result.routes[0].legs[0].duration.text,
         };
         directionsRenderer.setMap(map);
         directionsRenderer.setDirections(result);
+
       } else {
+        output = null;
         directionsRenderer.setDirections({ routes: [] });
         map.setCenter(userLatLng);
       }
@@ -74,7 +71,7 @@
   }
 
   onMount(() => {
-    drawMap();
+      drawMap();
   });
 
   function drawMap() {
@@ -103,13 +100,33 @@
       icon: "https://media.discordapp.net/attachments/897034987575050290/912737288235130930/gps-navigation_4.png",
     });
   }
+
+  function AddNewRide(){
+    if(output != null){
+      CurrentUser.update(user => {
+        user.rideHistory.push({
+          id: user.rideHistory.length,
+          origin:{name:output.startAddress, coords:userLatLng},
+          destination: destinationLocation,
+          driverID:0,
+          cost: "£" + parseFloat(output.distance) * .8,
+          time: new Date().getDay() + "/"+ new Date().getMonth() + "/" + new Date().getFullYear() + " - " + new Date().getHours() +":"+ new Date().getMinutes(),
+          status:"A driver is on their way to your location!"
+        });
+        return user;
+      });
+    }
+  }
 </script>
 
-{#if output != null}
-  <p>Distance: {output.distance} - Duration: {output.duration}</p>
-{/if}
 
 <div class="full-screen" bind:this={container} />
+
+{#if output != null}
+  <p>Cost: £{parseFloat(output.distance) * .8}</p>
+  <p>Distance: {output.distance} - Duration: {output.duration}</p>
+  <button class="button" on:click={AddNewRide}>Confirm Ride</button>
+{/if}
 
 <style>
   .full-screen {
