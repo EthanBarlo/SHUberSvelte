@@ -18,6 +18,7 @@
   let incorrectMessage = "";
   let currentDate = new Date();
   currentDate.setDate(1);
+  currentDate.setHours(0,0,0,0);
   function AddPayment(){
     if (nameOnCard == null) {
       incorrectMessage = "Name must be filled out";
@@ -36,11 +37,7 @@
       return;
     }
     let expDate = new Date(currentDate.getFullYear().toString().substr(0, 2) + expirationDate.substr(3, 5) + '-' + expirationDate.substr(0, 2))
-    console.log(expDate);
     if (expDate < currentDate) {
-      console.log(expDate);
-      console.log(currentDate);
-      console.log(expDate < currentDate);
       incorrectMessage = "Expiration Date must be in date";
       return;
     }
