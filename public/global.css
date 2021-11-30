@@ -32,7 +32,6 @@ body {
   .PageContainer{
 	  height: 100%;
 	  padding: 5%;
-	  overflow: hidden;
   }
 
 h1 {

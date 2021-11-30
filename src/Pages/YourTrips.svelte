@@ -7,16 +7,35 @@
   let trips = [
     // add map of trip to each item within array (coordinates? (Long/lat))
     {
-      Title: "wow",
-      Cost: "priceMuch",
-      Action: () => {
-        console.log("Wow Special");
-      },
+      Title: "Berlin --> Brandenburg Airport",
+      Cost: "£65",
+      Time: "13:08",
+      Action: tempAction,
     },
-    { Title: "ewasdas", Cost: "priceMuch", Action: tempAction },
-    { Title: "asdasd", Cost: "priceMuch", Action: tempAction },
-    { Title: "dsfsdfsdf", Cost: "priceMuch", Action: tempAction },
-    { Title: "dfgdfg", Cost: "NO", Action: tempAction },
+    {
+      Title: "London --> Manchester",
+      Cost: "£459",
+      Time: "09:40",
+      Action: tempAction,
+    },
+    {
+      Title: "Marseille --> Montpellione",
+      Cost: "£48",
+      Time: "10:48",
+      Action: tempAction,
+    },
+    {
+      Title: "Sheffield --> Rotherham",
+      Cost: "£20",
+      Time: "17:35",
+      Action: tempAction,
+    },
+    {
+      Title: "Stuttgart --> Frankfurt",
+      Cost: "£63",
+      Time: "22:15",
+      Action: tempAction,
+    },
   ];
 </script>
 
@@ -32,17 +51,15 @@
 
 <div class="PageContainer">
   <h1>Your Trips</h1>
-  <div id="TripsGrid">
-    {#each trips as trip}
-      <div class="tripContainer">
-        <h2>{trip.Title}</h2>
-        <p>{trip.Cost}</p>
-        <!-- Hide img/map of trip within this loop -->
-        <!-- <img src={trip.map} alt="this is a map"> -->
-        <button on:click|trusted={trip.Action}>View Trip</button>
-      </div>
-    {/each}
-  </div>
+  {#each trips as trip}
+    <div class="tripContainer">
+      <h2>{trip.Title}</h2>
+      <p>{trip.Cost} - {trip.Time}</p>
+      <!-- Hide img/map of trip within this loop -->
+      <!-- <img src={trip.map} alt="this is a map"> -->
+      <button on:click|trusted={trip.Action} class="button">View Trip</button>
+    </div>
+  {/each}
 </div>
 
 <style>
@@ -51,18 +68,9 @@
     text-align: center;
   }
 
-  #TripsGrid {
-    display: grid;
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;
-    grid-template-rows: auto auto;
-    grid-template-areas: "focused focused";
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
   .tripContainer {
-    padding: 0;
-    margin: 0;
+    padding-bottom: 15px;
+    margin: 15px 0;
     border: solid #000;
     border-width: 1px;
     border-radius: 10px;
@@ -75,8 +83,4 @@
   .tripContainer:focus-within {
     grid-area: focused;
   }
-  /* Show img / map when focused */
-  /* .tripContainer:focus-within img{
-        display: inherit;
-    } */
 </style>
