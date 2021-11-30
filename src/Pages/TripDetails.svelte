@@ -1,17 +1,43 @@
 <script>
-  import { CurrentUser } from "../stores.js";
+  import { CurrentUser, SelectedTrip, Drivers } from "../stores.js";
   import NavBar from "../Components/NavBar.svelte";
   import RouteView from "../Components/RouteViewer.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
-  export let tripID = 0;
 
   let tripLoaded = false;
+  let currentUsersTrips = null;
+  let selectedTrip = null;
+  let driversList = null;
+  let data;
+  let driver;
 
-  let trip;
-  CurrentUser.subscribe((user) => {
-    trip = user.rideHistory.find((ride) => ride.id == tripID);
-    tripLoaded = trip != null;
+  CurrentUser.subscribe(user => {
+    currentUsersTrips = user.rideHistory;
   });
+
+  SelectedTrip.subscribe(value => {
+    selectedTrip = value;
+  });
+
+  Drivers.subscribe(value => {
+    driversList = value;
+    LoadTripData();
+  });
+
+  function LoadTripData(){
+
+    console.log(selectedTrip);
+    console.log(currentUsersTrips);
+    console.log(driversList);
+
+    if(selectedTrip != null 
+    && currentUsersTrips != null 
+    && driversList != null){
+      data = currentUsersTrips.find((trip) => trip.id == selectedTrip);
+      driver = driversList.find(d => d.id == data.driverID)
+      tripLoaded = true;
+    }
+  }
 </script>
 
 <NavBar BackDestination="#/userProfile" />
@@ -19,28 +45,28 @@
   <h1>Trip Details</h1>
   {#if tripLoaded}
     <div class="map">
-        <h3>{trip.origin.name} ➜ {trip.destination.name}</h3>
-        <h4>{trip.cost} : {trip.travelTime}</h4>
+        <h3>{data.origin.name} ➜ {data.destination.name}</h3>
+        <h4>{data.cost} : {data.travelTime}</h4>
         <RouteView
-          origin={trip.origin.coords}
-          destination={trip.destination.coords}/>
+          origin={data.origin.coords}
+          destination={data.destination.coords}/>
     </div>
 
     <section class="info">
       <div id="DriverContainer">
         <ProfileHeader
-          src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
-          Name="Mel"
+          src={driver.imgSource}
+          Name={driver.name}
           Size="Small"
         />
       </div>
       <div id="LatestUpdate">
         <h3>Latest Update -</h3>
-        <p>{trip.status}</p>
-        <h3>Car Details -</h3>
-        <p>Reg Plate:</p>
-        <p>Make:</p>
-        <p>Colour:</p>
+        <p>{data.status}</p>
+        <h3>Car Details - </h3>
+        <p>Reg Plate: {driver.carDetails.regPlate}</p>
+        <p>Make: {driver.carDetails.model}</p>
+        <p>Colour: {driver.carDetails.colour}</p>
       </div>
     </section>
   {:else}

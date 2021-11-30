@@ -1,7 +1,7 @@
 <script>
   import NavBar from "../Components/NavBar.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
-  import { CurrentUser } from "../stores.js";
+  import { CurrentUser, SelectedTrip } from "../stores.js";
 
   let tripsLoaded = false;
   let trips;
@@ -13,7 +13,11 @@
   });
 
   function openTripDetails(tripClicked){
-    console.log({tripClicked});
+    var tripID = parseInt(tripClicked.target.children[0].childNodes[0].data);
+    SelectedTrip.update(() => {
+      return tripID;
+    });
+    window.location.href = "./#/tripDetails";
   }
 </script>
 
@@ -32,8 +36,10 @@
        {#each trips as trip}
          <div class="tripContainer">
            <h2>{trip.origin.name}➜{trip.destination.name}</h2>
-           <p>{trip.Cost} : {trip.time}</p>
-           <button on:click|trusted={openTripDetails}>View Trip <p style="display:none;">{trip.id}</p></button>
+           <section>
+             <p>{trip.Cost} : {trip.time}</p>
+             <button on:click|trusted={openTripDetails}>View Trip <p style="display:none;">{trip.id}</p></button>
+           </section>
          </div>
        {/each}
      </div>
@@ -60,8 +66,10 @@
     border-radius: 5%;
   }
 
-  /* If button is clicked */
-  .tripContainer:focus-within {
-    grid-area: focused;
+
+  section{
+    display: grid;
+    grid-template-columns: 60% 30% 10%;
+    width: 100%;
   }
 </style>

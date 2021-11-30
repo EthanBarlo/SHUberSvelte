@@ -35,13 +35,53 @@ export const Users = writable([
                 time:"18:36",
                 status:"Ride Finished and paid for."
             },
+            {
+                id:1,
+                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
+                travelTime:"6mins", 
+                cost:"£5",
+                driverID:0,
+                time:"18:36",
+                status:"Ride Finished and paid for."
+            },
+            {
+                id:2,
+                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
+                travelTime:"6mins", 
+                cost:"£5",
+                driverID:0,
+                time:"18:36",
+                status:"Ride Finished and paid for."
+            },
+            {
+                id:3,
+                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
+                travelTime:"6mins", 
+                cost:"£5",
+                driverID:0,
+                time:"18:36",
+                status:"Ride Finished and paid for."
+            },
+            {
+                id:4,
+                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
+                travelTime:"6mins", 
+                cost:"£5",
+                driverID:0,
+                time:"18:36",
+                status:"Ride Finished and paid for."
+            },
         ], 
     }
 ]);
 export const Drivers = writable([
     {
         id:0,
-        name:"Mell", 
+        name:"Mel", 
         imgSource:"https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg",
         description:"Mell'y Christmas!",
         rating:"4.2",
