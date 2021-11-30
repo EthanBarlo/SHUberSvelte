@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { DestinationLocation, UserLocation, CurrentUser, NotificationCounter, Notifications } from "../stores.js";
+  import { DestinationLocation, UserLocation, CurrentUser, NotificationCounter, Notifications, SelectedTrip } from "../stores.js";
   let container;
   let map;
   let destinationMarker;
@@ -127,8 +127,13 @@
         });
         return notifs;
       });
+      SelectedTrip.update(() => {
+      return output.rideID;
+    });
+    window.location.href = "./#/tripDetails";
     }
   }
+
 </script>
 
 

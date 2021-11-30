@@ -3,13 +3,13 @@
     import NotificationBell from "../Components/NotificationBell.svelte";
     import BackButton from "../Components/BackButton.svelte";
     import NavBar from "../Components/NavBar.svelte";
+    import { Drivers } from "../stores.js";
 
+    let driver;
+    Drivers.subscribe(d => {
+        driver = d[0];
+    });
 
-    let reviews = [
-        {reviewText:"This guy is a fucking chad", timeStamp: "2 days ago"},
-        {reviewText:"He terrified me, and I'm a hairy 6ft 9 lumberjack", timeStamp: "4 days ago"},
-        {reviewText:"Not bad, his car was covered in crumbs though..", timeStamp: "1 week ago"},
-    ]
 </script>
 
 <NavBar />
@@ -26,14 +26,13 @@ Rating="-3.6"/>
 
 <h1>Reviews</h1>
 
-
-{#each reviews as review}
-     <div class="reviewContainer">
-        <h2>{review.reviewText}</h2>
-        <p>{review.timeStamp}</p>
-     </div>
-     {/each}
-
+{#each driver.reviews as review}
+    <div class="reviewContainer">
+        <p id="rating">{review.rating}⭐</p>
+        <h2 id="message">{review.message}</h2>
+        <p id="name">~{review.name}</p>
+    </div>
+{/each}
 
  
 <style>
@@ -44,29 +43,31 @@ h1{
         font-size: 1.2em;
 }
 
-h2{
-    width: 100%;
-    text-align: left;
-    font-size: 0.8em;
-    top: 0;
-   
-}
-
-p{
-    font-size: 0.8em;
-    text-align: left;
-    
-}
-
 .reviewContainer{
     display: grid;
-    grid-template-rows: auto auto auto;
-    padding: 2%;
     margin: 5%;
-    border: 0.1em solid rgba(0, 0, 0, 0.8);
+    padding: 2%;
+    border: 0.2em solid rgba(0, 0, 0, 0.8);
     border-radius: 5%;
-
 }
 
+#rating,
+#message,
+#name{
+    margin: 0;
+    width: 100%;
+}
+
+#rating{
+    text-align: center;
+    font-size: 1.2em;
+}
+#message{
+    font-size: 1em;
+}
+#name{
+    text-align: left;
+    font-size: 1em;
+}
 
 </style>

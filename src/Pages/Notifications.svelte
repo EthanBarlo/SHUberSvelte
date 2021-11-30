@@ -37,16 +37,8 @@
         <section id="info">
           <h2>{notif.Title}</h2>
           <p>{notif.Detail}</p>
-          <button on:click|trusted={openTripDetails}>View Details<p style="display:none;">{notif.rideID}</p></button>
         </section>
-
-        <section id="profile">
-          <ProfileHeader
-            src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
-            Name="Angry Mel"
-            Size="Small"
-          />
-        </section>
+        <button on:click|trusted={openTripDetails}>View Details<p style="display:none;">{notif.rideID}</p></button>
       </div>
     {/each}
 
@@ -69,8 +61,6 @@
 
   h2 {
     font-size: 1.2em;
-    top: 0;
-    position: absolute;
   }
 
   h3 {
@@ -89,8 +79,12 @@
   button {
     grid-area: button;
     text-align: center;
+    position: absolute;
+    right: 2%;
+    top: 20%;
     padding: 3%;
-    width: 50%;
+    width: 30%;
+    height: 40%;
   }
 
   #notifsGrid {
@@ -98,16 +92,12 @@
     grid-row-gap: 3%;
     grid-template-rows: auto auto auto;
     grid-template-columns: 15% 70%;
-    -ms-overflow-style: none; /* IE and Edge */
+    overflow: scroll;
     scrollbar-width: none; /* Firefox */
   }
 
   #info {
     width: 70%;
-  }
-  #profile {
-    height: 100%;
-    width: 30%;
   }
 
   .notifContainer {

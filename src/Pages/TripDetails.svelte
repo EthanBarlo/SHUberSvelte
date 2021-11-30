@@ -41,30 +41,35 @@
 <div class="PageContainer">
   <h1>Trip Details</h1>
   {#if tripLoaded}
+  <h3>{data.origin.name} ➜ {data.destination.name}</h3>
+  <h4>{data.cost} : {data.travelTime}</h4>
     <div class="map">
-        <h3>{data.origin.name} ➜ {data.destination.name}</h3>
-        <h4>{data.cost} : {data.travelTime}</h4>
         <RouteView
           origin={data.origin.coords}
           destination={data.destination.coords}/>
     </div>
 
     <section class="info">
-      <div id="DriverContainer">
-        <ProfileHeader
-          src={driver.imgSource}
-          Name={driver.name}
-          Size="Small"
-        />
-      </div>
       <div id="LatestUpdate">
-        <h3>Latest Update -</h3>
-        <p>{data.status}</p>
-        <h3>Car Details - </h3>
-        <p>Reg Plate: {driver.carDetails.regPlate}</p>
-        <p>Make: {driver.carDetails.model}</p>
-        <p>Colour: {driver.carDetails.colour}</p>
+          <h3>Latest Update -</h3>
+          <p>{data.status}</p>
       </div>
+      <section id="driverDetails">
+        <div id="carDetails">
+          <h3>Car Details - </h3>
+          <p>Reg Plate: {driver.carDetails.regPlate}</p>
+          <p>Make: {driver.carDetails.model}</p>
+          <p>Colour: {driver.carDetails.colour}</p>
+        </div>
+        <div id="DriverContainer">
+          <ProfileHeader
+            src={driver.imgSource}
+            Name={driver.name}
+            Size="Small"
+          />
+          <a class="button" href="#/driverProfile">View Profile</a>
+        </div>
+      </section>
     </section>
   {:else}
     <p>Loading Trip Data...</p>
@@ -75,32 +80,75 @@
   .PageContainer {
     margin: 0;
     height: 100%;
-    overflow: hidden;
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  h3,
   h4 {
     margin: 0;
+    width: 100%;
+    text-align: center;
   }
 
-  .map {
-    display: block;
-    margin: 10px auto;
+  h3, p{
+    margin: 0;
   }
+  h3{
+    font-size: 1.1em;
+  }
+  p{
+    font-size: 1em;
+  }
+
+  #LatestUpdate{
+    position: relative;
+  }
+  #LatestUpdate::after{
+    content: ' ';
+    background: gray;
+    width: 100%;
+    height: 3%;
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+  }
+  .map {
+    margin: 2% auto;
+  }
+
   #DriverContainer {
-    width: 100px;
-    display: block;
-    margin: 10px auto;
+    width: 30%;
+    position: absolute;
+    right: 6%;
+    top: 6%;
+  }
+  #DriverContainer .button{
+    position: relative;
+    right: 10%;
+    padding: 7%;
+  }
+  #driverDetails{
+    display: flex;
+    position: relative;
+  }
+  #carDetails{
+    position: relative;
+    top: 15%;
+    left: 6%;
+    min-height: 160px;
   }
 
   .info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     border: solid #000;
     border-width: 1px;
     border-radius: 5px;
-    display: block;
     padding: 10px;
     margin: 20px auto;
+    width: 85%;
+    min-height: 25%;
   }
 </style>

@@ -49,18 +49,12 @@ export let Rating = "";
         left: -40%;
     }
 
-    #ProfileContainer.Small h2{
-        font-size: 1.2em;
-        position: absolute;
-        top: 0;
-    }
     #ProfileContainer.Small h3, 
     #ProfileContainer.Small p, 
     #ProfileContainer.Small p::after{
         display: none;
     }
     #ProfileContainer.Small img{
-        margin-top: 40%;
         width: 100%;
     }
 

@@ -8,9 +8,9 @@ export const DestinationLocation = writable({name: "placeName", coords:{lat:53.4
 export const SelectedTrip = writable(0);
 export const NotificationCounter = writable(0);
 export const Notifications = writable([
-    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip! lorem ipsum some text testig tesintai", Time: "00:00", rideID: 0},
-    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:00", rideID: 0},
-    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:20", rideID: 0},
+    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Time: "00:20", rideID: 0},
+    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:12", rideID: 0},
+    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:00", rideID: 0},
 ]); 
 
 export const CurrentUser = writable(0);
@@ -53,7 +53,7 @@ export const Drivers = writable([
         reviews:[
             {name:"RealUser", rating:"5", message:"Great driver, better guy"},
             {name:"MellsAlt", rating:"5", message:"BEST DRIVER FOR THE WORLD!"},
-            {name:"Harry", rating:"2", message:"Drove into a wall while driving."},
+            {name:"Harry", rating:"-20", message:"Drove into a wall while driving."},
         ]
     }
 ]);
