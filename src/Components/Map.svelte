@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { DestinationLocation, UserLocation, CurrentUser } from "../stores.js";
+  import { DestinationLocation, UserLocation, CurrentUser, NotificationCounter, Notifications } from "../stores.js";
   let container;
   let map;
   let destinationMarker;
@@ -104,7 +104,7 @@
   function AddNewRide(){
     if(output != null){
       CurrentUser.update(user => {
-        user.rideHistory.push({
+        user.rideHistory.unshift({
           id: user.rideHistory.length,
           origin:{name:output.startAddress, coords:userLatLng},
           destination: destinationLocation,
@@ -114,6 +114,15 @@
           status:"A driver is on their way to your location!"
         });
         return user;
+      });
+      NotificationCounter.update(value => value + 1);
+      Notifications.update(notifs => {
+        notifs.unshift({
+          Title:"Ride Accepted",
+          Detail:"Your driver is on their way to your destination!",
+          Time: new Date().getHours() +":"+ new Date().getMinutes(),
+        });
+        return notifs;
       });
     }
   }
