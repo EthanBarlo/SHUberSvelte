@@ -17,10 +17,19 @@
   let expirationDate;  
   let incorrectMessage = "";
   function AddPayment(){
-    if(nameOnCard != null
-      && cardNumber != null
-      && cvc != null
-      && expirationDate !=null){
+    if (nameOnCard == null) {
+      alert("Name must be filled out");
+      return;
+    }
+    if (cardNumber == null || cardNumber.length > 16) {
+      alert("Card Number must be filled in correctly");
+      return;
+    }
+    if (cardNumber.length != 3) {
+      alert("CVC must be filled in correctly");
+      return;
+    }
+    if(expirationDate !=null) {
         CurrentUser.update(user => {
           user.paymentDetails.push({
             ID: paymentDetails.length + 1,
