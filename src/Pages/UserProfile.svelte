@@ -4,29 +4,27 @@
     import BackButton from "../Components/BackButton.svelte";
     import NavBar from "../Components/NavBar.svelte";
 
+    import { CurrentUser } from "../stores.js";
 
+    let currentUser;
+    CurrentUser.subscribe(value =>{
+        currentUser = value;
+    });
     
 </script>
 
-<NavBar />
-<NotificationBell/>
-<BackButton Destination='#/chooseDestination'/>
-
-<h1>User Profile</h1>
+<NavBar BackDestination='#/chooseDestination'/>
 
 <ProfileHeader 
 src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 
-Name="Nervous boi" 
-Description="Newbie user" 
-Rating="4"/>
+Name={currentUser.username} 
+Description={currentUser.description} 
+Rating={currentUser.rating}/>
 
 <div id="aGrid">
-<a href = "#/YourTrips">Your trips</a>
-<a href = "#/Wallet">Wallet</a>
-<a href = "#/">Log out</a>
-
-
-
+    <a href = "#/YourTrips">Your trips</a>
+    <a href = "#/Wallet">Wallet</a>
+    <a href = "#/">Log out</a>
 </div>
 
 <style>

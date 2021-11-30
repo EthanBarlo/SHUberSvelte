@@ -17,15 +17,14 @@
 <NavBar BackDestination="#/userProfile" />
 <div class="PageContainer">
   <h1>Trip Details</h1>
-  <div class="map">
   {#if tripLoaded}
-    <h3>{trip.origin.name} ➜ {trip.destination.name}</h3>
-    <h4>{trip.cost} : {trip.travelTime}</h4>
-    <RouteView
-      origin={trip.origin.coords}
-      destination={trip.destination.coords}
-    />
-  </div>
+    <div class="map">
+        <h3>{trip.origin.name} ➜ {trip.destination.name}</h3>
+        <h4>{trip.cost} : {trip.travelTime}</h4>
+        <RouteView
+          origin={trip.origin.coords}
+          destination={trip.destination.coords}/>
+    </div>
 
     <section class="info">
       <div id="DriverContainer">
