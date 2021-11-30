@@ -10,7 +10,7 @@
   });
 </script>
 
-<NavBar />
+<NavBar BackDestination = '#/UserProfile'/>
 
 <div class="PageContainer">
   <h1>Book SHUber</h1>

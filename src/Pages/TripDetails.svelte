@@ -2,6 +2,7 @@
     import { CurrentUser } from "../stores.js";
     import NavBar from "../Components/NavBar.svelte";
     import RouteView from "../Components/RouteViewer.svelte";
+    import ProfileHeader from "../Components/ProfileHeader.svelte";
     export let tripID = 0;
 
     let gotDetails
@@ -16,9 +17,29 @@
 <NavBar BackDestination="#/userProfile"/>
 <div class="PageContainer">
     <h1>Trip Details</h1>
-    <h3>{trip.origin.name} --> {trip.destination.name}</h3>
+    <h3>{trip.origin.name} ----> {trip.destination.name}</h3>
     <h4>{trip.cost}   :   {trip.travelTime}</h4>
     <RouteView origin={trip.origin.coords} destination={trip.destination.coords}/>
+
+    <section>
+        <div id="DriverContainer">
+            <ProfileHeader
+            src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
+            Name="Mel"
+            Size="Small"
+          />
+        </div>
+        <div id="LatestUpdate">
+            <h3>Latest Update -</h3>
+            <p>{trip.status}</p>
+        </div>
+        <div>
+            <h3>Car Details -</h3>
+            <p>Reg Plate: </p>
+            <p>Make: </p>
+            <p>Colour: </p>
+        </div>
+    </section>
 
 </div>
 

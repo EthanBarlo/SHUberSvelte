@@ -20,24 +20,34 @@ Name="Nervous boi"
 Description="Newbie user" 
 Rating="4"/>
 
-<div class="Settings">
-<h2>Your Trips</h2>
-<h2>Wallet</h2>
-<h2>Log out</h2>
+<div id="aGrid">
+<a href = "#/YourTrips">Your trips</a>
+<a href = "#/Wallet">Wallet</a>
+<a href = "#/">Log out</a>
+
 
 
 </div>
 
 <style>
-    h1{
+h1{
         width: 100%;
         text-align: center;
         font-size: 1.2em;
 }
 
-.Settings{
-    align-items: left;
+#aGrid{
+    display: grid;
+    grid-template-rows: auto auto auto;
     margin: 10%;
+}
 
+a{
+    align-items: left;
+    margin: 5%;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 </style>

@@ -28,7 +28,8 @@ export const CurrentUser = writable({
             travelTime:"6mins", 
             cost:"£5",
             driverID:1,
-            time:"180:00"
+            time:"180:00",
+            status:"Driver is in their way to your destination",
         },  
     ], 
     favoriteLocations:[

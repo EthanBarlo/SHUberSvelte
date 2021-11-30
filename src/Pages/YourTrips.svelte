@@ -1,5 +1,4 @@
 <script>
-  import BackButton from "../Components/BackButton.svelte";
   import NavBar from "../Components/NavBar.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
   let tempAction = () => {
@@ -40,8 +39,8 @@
   ];
 </script>
 
-<NavBar />
-<BackButton Destination="#/chooseDestination" />
+<NavBar BackDestination ="#/UserProfile" />
+
 
 <ProfileHeader
   src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
