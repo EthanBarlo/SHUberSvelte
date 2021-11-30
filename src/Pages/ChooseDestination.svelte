@@ -10,7 +10,7 @@
   });
 </script>
 
-<NavBar BackDestination = '#/UserProfile'/>
+<NavBar BackDestination = '#/UserProfile' showUserProfile = true/>
 
 <div class="PageContainer">
   <h1>Book SHUber</h1>
