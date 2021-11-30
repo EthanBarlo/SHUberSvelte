@@ -11,9 +11,9 @@
   <a href="#/Notifications">
     <svg
       class={hasNotifications ? "StartShake" : ""}
-      width="30pt"
+      width="50"
+      height="47.609169"
       viewBox="0 0 50 47.609169"
-      preserveAspectRatio="xMidYMid meet"
       id="svg12"
     >
       <defs id="defs16" />
@@ -53,9 +53,9 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 2%;
-    margin-top: 1.2%;
     z-index: 1;
+    margin-top: calc(((6vh) - (6vh*.8)) / 2);
+    margin-right: 2%;
   }
   #NotifBell a {
     width: 100%;
@@ -63,6 +63,7 @@
   }
   #NotifBell svg {
     max-width: 300px;
+    width: calc(6vh*.8);
   }
   .StartShake {
     animation: shake 2s linear infinite;
@@ -80,12 +81,6 @@
     }
     100% {
       transform: rotate(0deg);
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    #NotifBell {
-      margin-top: 0.6%;
     }
   }
 </style>
