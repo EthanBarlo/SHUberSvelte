@@ -44,8 +44,8 @@ export const Users = writable([
         {ID: 0, name:"Visa", LastDigits:"1234"},
     ], 
     rideHistory:[
-        {origin:{name:"sheffield", coords:{lat:0, lng:0}}, 
-        destination:{name:"meadowhall", coords:{lat:0, lng:0}},
+        {origin:{name:"Sheffield", coords:{lat:53.3811, lng:1.4701}}, 
+        destination:{name:"Meadowhall", coords:{lat:53.4143, lng:1.4109}},
         travelTime:"6mins", 
         cost:"£5",
         driverID:1,
@@ -55,4 +55,28 @@ export const Users = writable([
     favoriteLocations:[
         {lat: 0, lng:0},
     ]}
+]);
+export const Drivers = writable([
+    {name:"Mell", 
+    imgSource:"",
+    carDetails:{
+        model:"Ford",
+        regPlate:"ASKJSAD",
+        colour:"yellow"
+    }, 
+    accountType:"driver", 
+    paymentDetails:[
+        {ID: 0, name:"Visa", LastDigits:"1234"},
+    ], 
+    rideHistory:[
+        {origin:{name:"Sheffield", coords:{lat:53.3811, lng:1.4701}}, 
+        destination:{name:"Meadowhall", coords:{lat:53.4143, lng:1.4109}},
+        travelTime:"6mins", 
+        distance:"2km",
+        cost:"£5",
+        driverID:1,
+        time:"18:36"
+        },
+    ]
+    }
 ]);
