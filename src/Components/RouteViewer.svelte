@@ -22,6 +22,10 @@
             var directionsRenderer = new google.maps.DirectionsRenderer();
             directionsRenderer.setMap(map);
 
+
+
+            console.log({origin});
+            console.log({destination});
             var request = {
               origin: origin,
               destination: destination,
@@ -55,8 +59,5 @@
     #map{
         width: 80vw;
         height: 20vh;
-    }
-    #RouteViewContainer{
-        overflow: hidden;
     }
 </style>

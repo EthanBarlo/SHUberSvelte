@@ -19,7 +19,7 @@
 <div class="PageContainer">
     <h1>Trip Details</h1>
     {#if tripLoaded}
-         <h3>{trip.origin.name} ----> {trip.destination.name}</h3>
+         <h3>{trip.origin.name} ➜ {trip.destination.name}</h3>
          <h4>{trip.cost}   :   {trip.travelTime}</h4>
          <RouteView origin={trip.origin.coords} destination={trip.destination.coords}/>
      
