@@ -39,7 +39,7 @@
 
 </script>
 
-<NavBar />
+<NavBar BackDestination = '#/UserProfile'/>
 <div class="PageContainer">
   <h1>Wallet</h1>
 
