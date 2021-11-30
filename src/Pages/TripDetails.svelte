@@ -37,7 +37,7 @@
   }
 </script>
 
-<NavBar BackDestination="#/userProfile" />
+<NavBar BackDestination="#/yourTrips" />
 <div class="PageContainer">
   <h1>Trip Details</h1>
   {#if tripLoaded}

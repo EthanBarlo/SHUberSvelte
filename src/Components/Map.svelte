@@ -104,11 +104,13 @@
   function AddNewRide(){
     if(output != null){
       CurrentUser.update(user => {
+        output.rideID = user.rideHistory.length;
         user.rideHistory.unshift({
           id: user.rideHistory.length,
           origin:{name:output.startAddress, coords:userLatLng},
           destination: destinationLocation,
           driverID:0,
+          travelTime:output.duration,
           cost: "£" + parseFloat(output.distance) * .8,
           time: new Date().getDay() + "/"+ new Date().getMonth() + "/" + new Date().getFullYear() + " - " + new Date().getHours() +":"+ new Date().getMinutes(),
           status:"A driver is on their way to your location!"
@@ -121,6 +123,7 @@
           Title:"Ride Accepted",
           Detail:"Your driver is on their way to your destination!",
           Time: new Date().getHours() +":"+ new Date().getMinutes(),
+          rideID: output.rideID,
         });
         return notifs;
       });

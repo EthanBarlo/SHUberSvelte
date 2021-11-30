@@ -8,9 +8,9 @@ export const DestinationLocation = writable({name: "placeName", coords:{lat:53.4
 export const SelectedTrip = writable(0);
 export const NotificationCounter = writable(0);
 export const Notifications = writable([
-    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip! lorem ipsum some text testig tesintai", Time: "00:00", Action:() => { console.log("some detail for you bruh"); }},
-    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:00", Action:() => { console.log("some detail for you bruh"); }},
-    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:20", Action:() => { console.log("some detail for you bruh"); }},
+    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip! lorem ipsum some text testig tesintai", Time: "00:00", rideID: 0},
+    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:00", rideID: 0},
+    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:20", rideID: 0},
 ]); 
 
 export const CurrentUser = writable(0);

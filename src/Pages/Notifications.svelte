@@ -2,7 +2,7 @@
   import { slide } from "svelte/transition";
   import NavBar from "../Components/NavBar.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
-  import { Notifications, NotificationCounter } from "../stores.js";
+  import { Notifications, NotificationCounter, SelectedTrip } from "../stores.js";
 
 
   NotificationCounter.update(() => {
@@ -13,11 +13,18 @@
   Notifications.subscribe((value) => {
     notifs = value;
   });
+
+  function openTripDetails(tripClicked){
+    var tripID = parseInt(tripClicked.target.children[0].childNodes[0].data);
+    SelectedTrip.update(() => {
+      return tripID;
+    });
+    window.location.href = "./#/tripDetails";
+  }
+
 </script>
 
-<div id="NotificationPage"
- in:slide out:slide={{duration:150}}
->
+<div id="NotificationPage" in:slide out:slide={{duration:150}}>
   <NavBar BackDestination="#/chooseDestination"/>
   <h1>Notifications</h1>
   <div id="notifsGrid">
@@ -30,7 +37,7 @@
         <section id="info">
           <h2>{notif.Title}</h2>
           <p>{notif.Detail}</p>
-          <button on:click|trusted={notif.Action}>View Details</button>
+          <button on:click|trusted={openTripDetails}>View Details<p style="display:none;">{notif.rideID}</p></button>
         </section>
 
         <section id="profile">
@@ -44,7 +51,7 @@
     {/each}
 
   </div>
-  
+
   <div class="end">End of notification history.</div>
 </div>
 
