@@ -5,17 +5,19 @@
     export let destination;
 
     let mapContainer;
- 
+    var map;
     IsGoogleLoaded.subscribe(googleHasLoaded => {
       if(googleHasLoaded){
-        var map = new google.maps.Map(mapContainer, {
-            center: origin,
-            disableDefaultUI: true,
-            draggable: false,
-            scrollwheel: false,
-            panControl: false,
-            clickableIcons: false
-        });
+        setTimeout(() => {
+          map = new google.maps.Map(mapContainer, {
+              center: origin,
+              disableDefaultUI: true,
+              draggable: false,
+              scrollwheel: false,
+              panControl: false,
+              clickableIcons: false
+          });
+        }, 100);
     
         var directionsService = new google.maps.DirectionsService();
         var directionsRenderer = new google.maps.DirectionsRenderer();
@@ -41,11 +43,7 @@
     });
 </script>
 
-
-<div id="RouteViewContainer">
-    <div id="map" bind:this={mapContainer}></div>
-</div>
-
+<div id="map" bind:this="{mapContainer}"></div>
 
 <style>
     #map{

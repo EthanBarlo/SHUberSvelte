@@ -12,12 +12,13 @@
     IsGoogleLoaded.subscribe(value => {
         hasGoogleLoaded = value;
         if (value) {
-            autocomplete = new google.maps.places.Autocomplete(input, {
-                fields: ['name', 'geometry'],
-                componentRestrictions: {'country' : ['UK']},
-            });
-            
-            google.maps.event.addListener(autocomplete, 'place_changed', ()=>{
+            setTimeout(() => {
+                autocomplete = new google.maps.places.Autocomplete(input, {
+                    fields: ['name', 'geometry'],
+                    componentRestrictions: {'country' : ['UK']},
+                });
+                
+                google.maps.event.addListener(autocomplete, 'place_changed', ()=>{
                 place = autocomplete.getPlace();
                 if(place.geometry.location){
                     DestinationLocation.update(value =>{
@@ -28,6 +29,7 @@
                     })
                 }
             });
+            }, 100);
     }});
 
 
