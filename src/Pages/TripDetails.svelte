@@ -17,6 +17,7 @@
 <NavBar BackDestination="#/userProfile" />
 <div class="PageContainer">
   <h1>Trip Details</h1>
+  <div class="map">
   {#if tripLoaded}
     <h3>{trip.origin.name} ➜ {trip.destination.name}</h3>
     <h4>{trip.cost} : {trip.travelTime}</h4>
@@ -24,8 +25,9 @@
       origin={trip.origin.coords}
       destination={trip.destination.coords}
     />
+  </div>
 
-    <section>
+    <section class="info">
       <div id="DriverContainer">
         <ProfileHeader
           src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg"
@@ -34,14 +36,12 @@
         />
       </div>
       <div id="LatestUpdate">
-        <div id="info">
-          <h3>Latest Update -</h3>
-          <p>{trip.status}</p>
-          <h3>Car Details -</h3>
-          <p>Reg Plate:</p>
-          <p>Make:</p>
-          <p>Colour:</p>
-        </div>
+        <h3>Latest Update -</h3>
+        <p>{trip.status}</p>
+        <h3>Car Details -</h3>
+        <p>Reg Plate:</p>
+        <p>Make:</p>
+        <p>Colour:</p>
       </div>
     </section>
   {:else}
@@ -63,18 +63,22 @@
     margin: 0;
   }
 
+  .map{
+    display: block;
+    margin: 10px auto;
+  }
   #DriverContainer {
     width: 100px;
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
   }
 
-  #LatestUpdate {
+  .info {
+    border: solid #000;
+    border-width: 1px;
+    border-radius: 5px;
     display: block;
-    margin: 0 auto;
-  }
-
-  #info {
-    margin: 0 auto;
+    padding: 10px;
+    margin: 20px auto;
   }
 </style>
