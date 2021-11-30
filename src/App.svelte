@@ -1,5 +1,11 @@
 <script>
   import Router from "svelte-spa-router";
+  import { CurrentUser, Users } from "./stores.js";
+
+  Users.subscribe(value => {
+    CurrentUser.update(() => {return value[0];});
+  });
+
 
   // Page imports
   import Login from "./Pages/Login.svelte";

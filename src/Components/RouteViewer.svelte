@@ -23,13 +23,13 @@
             directionsRenderer.setMap(map);
 
             var request = {
-              origin: origin,
-              destination: destination,
+              origin,
+              destination,
               travelMode: google.maps.TravelMode.DRIVING,
               unitSystem: google.maps.UnitSystem.IMPERIAL
             }
-      
-            directionsService.route(request, (result, status) => {;
+            
+            directionsService.route(request, (result, status) => {
               if(status == google.maps.DirectionsStatus.OK){
                 output = {distance: result.routes[0].legs[0].distance.text,
                           duration: result.routes[0].legs[0].duration.text};
@@ -55,8 +55,5 @@
     #map{
         width: 80vw;
         height: 20vh;
-    }
-    #RouteViewContainer{
-        overflow: hidden;
     }
 </style>

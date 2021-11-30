@@ -11,8 +11,6 @@
   <a href="#/Notifications">
     <svg
       class={hasNotifications ? "StartShake" : ""}
-      width="50"
-      height="47.609169"
       viewBox="0 0 50 47.609169"
       id="svg12"
     >

@@ -16,11 +16,32 @@
   let cvc;
   let expirationDate;  
   let incorrectMessage = "";
+  let currentDate = new Date();
+  currentDate.setDate(1);
+  currentDate.setHours(0,0,0,0);
   function AddPayment(){
-    if(nameOnCard != null
-      && cardNumber != null
-      && cvc != null
-      && expirationDate !=null){
+    if (nameOnCard == null) {
+      incorrectMessage = "Name must be filled out";
+      return;
+    }
+    if (cardNumber.length != 16) {
+      incorrectMessage = "Card Number must be 16 characters";
+      return;
+    }
+    if (cvc.length != 3) {
+      incorrectMessage = "CVC must be filled in correctly";
+      return;
+    }
+    if (expirationDate.length != 5) {
+      incorrectMessage = "Expiration Date must be in the format \'dd/mm\'";
+      return;
+    }
+    let expDate = new Date(currentDate.getFullYear().toString().substr(0, 2) + expirationDate.substr(3, 5) + '-' + expirationDate.substr(0, 2))
+    if (expDate < currentDate) {
+      incorrectMessage = "Expiration Date must be in date";
+      return;
+    }
+    if(expirationDate !=null) {
         CurrentUser.update(user => {
           user.paymentDetails.push({
             ID: paymentDetails.length + 1,
