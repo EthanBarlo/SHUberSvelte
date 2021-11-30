@@ -62,7 +62,7 @@
     margin: 0;
   }
 
-  .map{
+  .map {
     display: block;
     margin: 10px auto;
   }

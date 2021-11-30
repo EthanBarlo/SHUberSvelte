@@ -10,7 +10,7 @@
   });
 </script>
 
-<NavBar BackDestination = '#/UserProfile' showUserProfile = true/>
+<NavBar BackDestination="#/UserProfile" showUserProfile="true" />
 
 <div class="PageContainer">
   <h1>Book SHUber</h1>
@@ -22,10 +22,11 @@
     <Map zoom={12} />
   {/if}
 </div>
+<button class="button">Confirm Ride</button>
 
 <style>
   .PageContainer {
-    height: 100%;
-    overflow: hidden;
+    height: 80vh;
+    text-align: center;
   }
 </style>
