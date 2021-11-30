@@ -11,9 +11,15 @@
   let userLatLng = { lat: 53.384974, lng: -1.461184 };
   UserLocation.subscribe((value) => {
     userLatLng = value;
-    if (mapLoaded){
-      map.setCenter({lat:value.coords.latitude, lng:value.coords.longitude});
-      currentLocationMarker.setPosition({lat:value.coords.latitude, lng:value.coords.longitude});
+    if (mapLoaded) {
+      map.setCenter({
+        lat: value.coords.latitude,
+        lng: value.coords.longitude,
+      });
+      currentLocationMarker.setPosition({
+        lat: value.coords.latitude,
+        lng: value.coords.longitude,
+      });
     }
   });
 
@@ -109,6 +115,6 @@
   .full-screen {
     width: 100%;
     margin: 0 auto;
-    height: 75vh;
+    height: 50%;
   }
 </style>
