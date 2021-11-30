@@ -23,8 +23,8 @@ export const CurrentUser = writable({
     rideHistory:[
         {
             id:0,
-            origin:{name:"sheffield", coords:{lat:53.3811, lng:1.4701}}, 
-            destination:{name:"meadowhall", coords:{lat:53.4143, lng:1.4109}},
+            origin:{name:"sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+            destination:{name:"meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
             travelTime:"6mins", 
             cost:"£5",
             driverID:1,
