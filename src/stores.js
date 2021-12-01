@@ -13,10 +13,39 @@ export const Notifications = writable([
     {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Time: "00:20", rideID: 0},
     {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:12", rideID: 0},
     {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:00", rideID: 0},
+    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Time: "00:20", rideID: 0},
+    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:12", rideID: 0},
+    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:00", rideID: 0},
+    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Time: "00:20", rideID: 0},
+    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:12", rideID: 0},
+    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:00", rideID: 0},
 ]); 
 
 export const CurrentUser = writable(0);
 export const Users = writable([
+    {
+        username:"admin", 
+        password:"admin", 
+        imgSource:"https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg",
+        description:"SHUber guy",
+        rating:"∞",
+        defaultPayment: 1,
+        paymentDetails:[
+            {ID: 1, name:"Alan T Cardholder", lastDigits:"1234", cvc:"123", expDate:"07/25"},
+        ], 
+        rideHistory:[
+            {
+                id:0,
+                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
+                travelTime:"6mins", 
+                cost:"£5",
+                driverID:0,
+                time:"18:36",
+                status:"Ride Finished and paid for."
+            },
+        ], 
+    },
     {
         username:"admin", 
         password:"admin", 

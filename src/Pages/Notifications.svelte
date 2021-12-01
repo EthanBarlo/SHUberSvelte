@@ -46,9 +46,8 @@
         <button on:click|trusted={openTripDetails}>View Details<p style="display:none;">{notif.rideID}</p></button>
       </div>
     {/each}
-    <div class="end">End of notification history.</div>
+    <div id="end">End of notification history.</div>
   </div>
-
 </div>
 
 <style>
@@ -105,6 +104,8 @@
     grid-template-columns: 15% 70%;
     overflow: scroll;
     scrollbar-width: none; /* Firefox */
+    height: 80%;
+    align-items: center;
   }
 
   #info {
@@ -134,11 +135,12 @@
     border-radius: 5%;
   }
 
-  .end {
+  #end {
     font: italic;
     font-size: 1.2em;
     text-align: center;
     width: 100%;
     margin-top: 10%;
+    grid-column: 2;
   }
 </style>
