@@ -1,14 +1,21 @@
 <script>
-  import { NotificationCounter } from "../stores.js";
+  import { NotificationCounter, PreviousPage } from "../stores.js";
 
   let hasNotifications = false;
   NotificationCounter.subscribe((value) => {
     hasNotifications = value >= 1;
   });
+
+  function loadNotifications(){
+    PreviousPage.update(value => {
+      return window.location.href;
+    });
+    window.location.href= "./#/notifications";
+  }
 </script>
 
 <div id="NotifBell">
-  <a href="#/Notifications">
+  <p on:click={loadNotifications}>
     <svg
       class={hasNotifications ? "StartShake" : ""}
       viewBox="0 0 50 47.609169"
@@ -43,7 +50,7 @@
         />
       </g>
     </svg>
-  </a>
+  </p>
 </div>
 
 <style>
@@ -55,9 +62,11 @@
     margin-top: calc(((6vh) - (6vh*.8)) / 2);
     margin-right: 2%;
   }
-  #NotifBell a {
+  #NotifBell p {
     width: 100%;
     height: 100%;
+    cursor: pointer;
+    margin: 0;
   }
   #NotifBell svg {
     max-width: 300px;

@@ -5,6 +5,7 @@ import { writable } from 'svelte/store';
 export const IsGoogleLoaded = writable(false);
 export const UserLocation = writable({lat:53.52644, lng:-1.63132});
 export const DestinationLocation = writable({name: "placeName", coords:{lat:53.41438, lng:-1.4113328}});
+export const PreviousPage = writable(0);
 export const SelectedTrip = writable(0);
 export const NotificationCounter = writable(0);
 export const Notifications = writable([

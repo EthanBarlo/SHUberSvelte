@@ -15,7 +15,7 @@
     <p>Aren't SHU glad you chose us?</p>
   </section>
   <h2>Forgot Password</h2>
-  <form>
+  <div id="form">
     <label for="Username/Email">
       <input
         type="text"
@@ -27,12 +27,12 @@
     <button onclick="location.href='./#/Login';" class="resetButton"
       >Request Password Reset</button
     >
-  </form>
+  </div>
 </div>
 
 <style>
   #TitleBar,
-  form {
+  #form {
     display: flex;
     flex-direction: column;
     align-items: center;

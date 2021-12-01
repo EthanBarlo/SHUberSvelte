@@ -1,9 +1,7 @@
 <script>
   import { slide } from "svelte/transition";
-  import NavBar from "../Components/NavBar.svelte";
-  import ProfileHeader from "../Components/ProfileHeader.svelte";
-  import { Notifications, NotificationCounter, SelectedTrip } from "../stores.js";
-
+  import BackButton from "../Components/BackButton.svelte";
+  import { Notifications, NotificationCounter, SelectedTrip, PreviousPage } from "../stores.js";
 
   NotificationCounter.update(() => {
     return 0;
@@ -12,6 +10,11 @@
   let notifs;
   Notifications.subscribe((value) => {
     notifs = value;
+  });
+
+  let previousPage;
+  PreviousPage.subscribe(value => {
+    previousPage = value;
   });
 
   function openTripDetails(tripClicked){
@@ -25,7 +28,9 @@
 </script>
 
 <div id="NotificationPage" in:slide out:slide={{duration:150}}>
-  <NavBar BackDestination="#/chooseDestination"/>
+  <div class="navbar">
+    <BackButton Destination={previousPage}/>
+  </div>
   <h1>Notifications</h1>
   <div id="notifsGrid">
 
@@ -48,6 +53,13 @@
 </div>
 
 <style>
+  .navbar {
+    position: relative;
+    background: #000;
+    height: 6%;
+    width: 100%;
+    margin: 0;
+  }
   #NotificationPage{
     height: 100%;
     overflow: hidden;
