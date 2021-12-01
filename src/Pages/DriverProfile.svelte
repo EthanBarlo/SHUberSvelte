@@ -19,7 +19,7 @@
 <h1>Driver Profile</h1>
 
 <ProfileHeader 
-src={driver.srcImage}
+src={driver.imgSource}
 Name={driver.name}
 Description={driver.description}
 Rating={driver.rating}/>

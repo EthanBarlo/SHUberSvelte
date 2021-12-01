@@ -16,7 +16,7 @@
 <NavBar BackDestination='#/chooseDestination'/>
 
 <ProfileHeader 
-src={currentUser.srcImage} 
+src={currentUser.imgSource} 
 Name={currentUser.username} 
 Description={currentUser.description} 
 Rating={currentUser.rating}/>
