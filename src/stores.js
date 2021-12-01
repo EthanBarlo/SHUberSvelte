@@ -23,6 +23,7 @@ export const Users = writable([
         imgSource:"https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg",
         description:"SHUber guy",
         rating:"∞",
+        defaultPayment: 1,
         paymentDetails:[
             {ID: 1, name:"Alan T Cardholder", lastDigits:"1234", cvc:"123", expDate:"07/25"},
         ], 

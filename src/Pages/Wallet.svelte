@@ -2,7 +2,7 @@
   import NavBar from "../Components/NavBar.svelte";
   import { CurrentUser, Temp, NotificationCounter, Notifications, SelectedTrip } from "../stores.js";
 
-  let defaultPayment;
+  let defaultPayment = 0;
   let user;
   let paymentDetails = [];
   CurrentUser.subscribe(value => {
@@ -50,6 +50,7 @@
     }
     if(expirationDate !=null) {
         CurrentUser.update(user => {
+          user.defaultPayment = paymentDetails.length + 1;
           user.paymentDetails.push({
             ID: paymentDetails.length + 1,
             name: nameOnCard,
