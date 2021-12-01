@@ -26,7 +26,7 @@ export const Users = writable([
     {
         username:"admin", 
         password:"admin", 
-        imgSource:"https://media.istockphoto.com/photos/headshot-of-44-year-old-mixed-race-man-in-casual-polo-shirt-picture-id1264106963?b=1&k=20&m=1264106963&s=170667a&w=0&h=dLQliHpFkaweGQhiRfkNGkwsAPoKCEy9UWWk-m2iCCk=",
+        imgSource:"https://cdn.discordapp.com/attachments/897035094596935690/915637622599213116/istockphoto-1264106963-170667a.png",
         description:"SHUber guy",
         rating:"∞",
         defaultPayment: 1,
@@ -49,7 +49,7 @@ export const Users = writable([
     {
         username:"Jordan", 
         password:"password", 
-        imgSource:"https://cdn.discordapp.com/attachments/897034987575050290/915631828537315338/unknown.png",
+        imgSource:"https://cdn.discordapp.com/attachments/897035094596935690/915637767424335932/unknown.png",
         description:"I work at tesco",
         rating:"4.7",
         defaultPayment: 0,
@@ -93,7 +93,7 @@ export const Drivers = writable([
     {
         id:0,
         name:"Mel", 
-        imgSource:"https://cdn.theatlantic.com/thumbor/0JDaFcEmQRr2eMoLQXk9pDfp-Q0=/17x15:1964x1110/1600x900/media/img/mt/2018/07/Mel_Brooks_2_2/original.jpg",
+        imgSource:"https://cdn.discordapp.com/attachments/897035094596935690/915637907669278760/original.png",
         description:"Mell'y Christmas!",
         rating:"4.2",
         carDetails:{
