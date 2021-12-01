@@ -47,16 +47,35 @@ export const Users = writable([
         ], 
     },
     {
-        username:"admin", 
-        password:"admin", 
-        imgSource:"https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg",
-        description:"SHUber guy",
-        rating:"∞",
-        defaultPayment: 1,
+        username:"Jordan", 
+        password:"password", 
+        imgSource:"https://cdn.discordapp.com/attachments/897034987575050290/915631554569588797/unknown.png",
+        description:"I work at tesco",
+        rating:"4.7",
+        defaultPayment: 0,
         paymentDetails:[
-            {ID: 1, name:"Alan T Cardholder", lastDigits:"1234", cvc:"123", expDate:"07/25"},
         ], 
         rideHistory:[
+            {
+                id:0,
+                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
+                travelTime:"6mins", 
+                cost:"£70",
+                driverID:0,
+                time:"18:36",
+                status:"Ride Finished and paid for."
+            },
+            {
+                id:0,
+                origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
+                destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
+                travelTime:"6mins", 
+                cost:"£5",
+                driverID:0,
+                time:"18:36",
+                status:"Ride Finished and paid for."
+            },
             {
                 id:0,
                 origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
@@ -68,7 +87,7 @@ export const Users = writable([
                 status:"Ride Finished and paid for."
             },
         ], 
-    }
+    },
 ]);
 export const Drivers = writable([
     {

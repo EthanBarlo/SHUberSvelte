@@ -1,6 +1,11 @@
 <script>
   import Car from "../Components/CarSVG.svelte";
   import BackButton from "../Components/BackButton.svelte";
+  import { Users } from "../stores.js";
+
+
+  let userName;
+
 </script>
 
 
@@ -21,12 +26,12 @@
         type="text"
         placeholder="Username / Email Address"
         name="userName"
+        bind:value={userName}
         required
       />
     </label>
     <button onclick="location.href='./#/';" class="resetButton"
-      >Request Password Reset</button
-    >
+      >Request Password Reset</button>
   </div>
 </div>
 
