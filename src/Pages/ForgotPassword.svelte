@@ -24,7 +24,7 @@
         required
       />
     </label>
-    <button onclick="location.href='./#/Login';" class="resetButton"
+    <button onclick="location.href='./#/';" class="resetButton"
       >Request Password Reset</button
     >
   </div>

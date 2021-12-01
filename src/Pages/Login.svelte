@@ -42,7 +42,7 @@
   <div>
 
     <label for="userName">
-      <input type="text" placeholder="Email / Username" name="userName" bind:value={userName} required/>
+      <input type="text" placeholder="Email / Username" name="username" bind:value={userName} required/>
     </label>
 
     <label for="password">

@@ -27,6 +27,7 @@
         });
         return usersList;
       });
+      window.location.href = "./#/";
     }
   }
 </script>
@@ -57,7 +58,7 @@
     </label>
 
     <label for="userName">
-      <input type="text" placeholder="Username / Email Address" name="userName" bind:value={userName} required/>
+      <input type="text" placeholder="Username / Email Address" name="username" bind:value={userName} required/>
     </label>
 
     <label for="password">

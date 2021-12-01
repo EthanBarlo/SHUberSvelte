@@ -1,12 +1,19 @@
 <script>
   import NavBar from "../Components/NavBar.svelte";
-  import { CurrentUser } from "../stores.js";
+  import { CurrentUser, Temp, NotificationCounter, Notifications, SelectedTrip } from "../stores.js";
 
   let defaultPayment;
+  let user;
   let paymentDetails = [];
-  CurrentUser.subscribe(user => {
-    defaultPayment = user.defaultPayment;
-    paymentDetails = user.paymentDetails;
+  CurrentUser.subscribe(value => {
+    user = value;
+    defaultPayment = value.defaultPayment;
+    paymentDetails = value.paymentDetails;
+  });
+
+  let temp;
+  Temp.subscribe(value => {
+    temp = value;
   });
 
 
@@ -58,6 +65,39 @@
     }
   }
 
+  function AddNewRide(){
+    if(temp.output != null && defaultPayment != 0){
+      CurrentUser.update(user => {
+        temp.output.rideID = user.rideHistory.length;
+        user.rideHistory.unshift({
+          id: user.rideHistory.length,
+          origin:{name:temp.output.startAddress, coords:temp.userLatLng},
+          destination: temp.destinationLocation,
+          driverID:0,
+          travelTime:temp.output.duration,
+          cost: "£" + parseFloat(temp.output.distance) * .8,
+          time: new Date().getDay() + "/"+ new Date().getMonth() + "/" + new Date().getFullYear() + " - " + new Date().getHours() +":"+ new Date().getMinutes(),
+          status:"A driver is on their way to your location!"
+        });
+        return user;
+      });
+      NotificationCounter.update(value => value + 1);
+      Notifications.update(notifs => {
+        notifs.unshift({
+          Title:"Ride Accepted",
+          Detail:"Your driver is on their way to your destination!",
+          Time: new Date().getHours() +":"+ new Date().getMinutes(),
+          rideID: temp.output.rideID,
+        });
+        return notifs;
+      });
+      SelectedTrip.update(() => {
+      return temp.output.rideID;
+    });
+    window.location.href = "./#/tripDetails";
+    }
+  }
+
 </script>
 
 <NavBar BackDestination = '#/UserProfile'/>
@@ -101,7 +141,7 @@
     <button class="button" on:click={AddPayment}>Add Card</button>
   </div>
 
-  <button class="button payButton">Pay Now</button>
+  <button class="button payButton" on:click={AddNewRide}>Pay Now</button>
 </div> 
 
 <style>

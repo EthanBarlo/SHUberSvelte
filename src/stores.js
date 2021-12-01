@@ -2,6 +2,7 @@ import { writable } from 'svelte/store';
 
 // We can add in variables that are editable / accessible throughout the application here
 // Our own fake databaseS
+export const Temp = writable();
 export const IsGoogleLoaded = writable(false);
 export const UserLocation = writable({lat:53.52644, lng:-1.63132});
 export const DestinationLocation = writable({name: "placeName", coords:{lat:53.41438, lng:-1.4113328}});
@@ -23,7 +24,7 @@ export const Users = writable([
         description:"SHUber guy",
         rating:"∞",
         paymentDetails:[
-            {ID: 0, name:"Alan T Cardholder", lastDigits:"1234", cvc:"123", expDate:"07/25"},
+            {ID: 1, name:"Alan T Cardholder", lastDigits:"1234", cvc:"123", expDate:"07/25"},
         ], 
         rideHistory:[
             {
