@@ -16,7 +16,7 @@
 <NavBar BackDestination='#/chooseDestination'/>
 
 <ProfileHeader 
-src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 
+src={currentUser.srcImage} 
 Name={currentUser.username} 
 Description={currentUser.description} 
 Rating={currentUser.rating}/>

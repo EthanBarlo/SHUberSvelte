@@ -19,10 +19,10 @@
 <h1>Driver Profile</h1>
 
 <ProfileHeader 
-src="https://media.discordapp.net/attachments/897035019153977344/910205894397145138/mel_anger.jpg" 
-Name="Mel Gibson" 
-Description="SHUber Driver, Stunt Man" 
-Rating="-3.6"/>
+src={driver.srcImage}
+Name={driver.name}
+Description={driver.description}
+Rating={driver.rating}/>
 
 <h1>Reviews</h1>
 
