@@ -46,10 +46,9 @@
         <button on:click|trusted={openTripDetails}>View Details<p style="display:none;">{notif.rideID}</p></button>
       </div>
     {/each}
-
+    <div class="end">End of notification history.</div>
   </div>
 
-  <div class="end">End of notification history.</div>
 </div>
 
 <style>

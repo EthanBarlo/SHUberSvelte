@@ -1,5 +1,5 @@
 <script>
-  import { CurrentUser, SelectedTrip, Drivers } from "../stores.js";
+  import { CurrentUser, SelectedTrip, Drivers, NotificationCounter, Notifications } from "../stores.js";
   import NavBar from "../Components/NavBar.svelte";
   import RouteView from "../Components/RouteViewer.svelte";
   import ProfileHeader from "../Components/ProfileHeader.svelte";
@@ -10,7 +10,7 @@
   let driversList = null;
   let data = null;
   let driver;
-
+  let rideCompleted = false;
   CurrentUser.subscribe(user => {
     currentUsersTrips = user.rideHistory;
     LoadTripData();
@@ -32,9 +32,28 @@
     && driversList != null && data == null){
       data = currentUsersTrips.find((trip) => trip.id == selectedTrip);
       driver = driversList.find(d => d.id == data.driverID)
+      rideCompleted = data.status == "Ride Finished and paid for." || "Ride Canceled, payment is withdrawn.";
       tripLoaded = true;
     }
   }
+
+  function cancelRide(){
+    CurrentUser.update(user => {
+      user.rideHistory.find(d => d.id == data.id).status = "Ride Canceled, payment is withdrawn."
+      data = null;
+      return user;
+    });
+    NotificationCounter.update(value => value + 1);
+    Notifications.update(value => {
+      value.unshift({
+        Title:"Ride cancelled!", 
+        Detail:"You cancelled your trip to "+data.destination.name+"!", 
+        Time: new Date().getHours() +":"+ new Date().getMinutes(), 
+        rideID: data.id
+      });
+    });
+  }
+
 </script>
 
 <NavBar BackDestination="#/yourTrips" />
@@ -70,6 +89,9 @@
           <a class="button" href="#/driverProfile">View Profile</a>
         </div>
       </section>
+      {#if !rideCompleted}
+         <p id="cancelButton" on:click={cancelRide} class="button">Cancel</p>
+      {/if}
     </section>
   {:else}
     <p>Loading Trip Data...</p>
@@ -115,6 +137,11 @@
   }
   .map {
     margin: 2% auto;
+  }
+
+  #cancelButton{
+    position: relative;
+    cursor: pointer;
   }
 
   #DriverContainer {
