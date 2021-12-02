@@ -32,7 +32,7 @@
     && driversList != null && data == null){
       data = currentUsersTrips.find((trip) => trip.id == selectedTrip);
       driver = driversList.find(d => d.id == data.driverID)
-      rideCompleted = data.status == "Ride Finished and paid for." || "Ride Canceled, payment is withdrawn.";
+      rideCompleted = data.status == "Ride Finished and paid for." || data.status == "Ride Canceled, payment is withdrawn.";
       tripLoaded = true;
     }
   }

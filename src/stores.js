@@ -10,15 +10,7 @@ export const PreviousPage = writable(0);
 export const SelectedTrip = writable(0);
 export const NotificationCounter = writable(0);
 export const Notifications = writable([
-    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Time: "00:20", rideID: 0},
-    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:12", rideID: 0},
-    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:00", rideID: 0},
-    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Time: "00:20", rideID: 0},
-    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:12", rideID: 0},
-    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:00", rideID: 0},
-    {Title:"Ride cancelled!", Detail:"Your driver cancelled your trip!", Time: "00:20", rideID: 0},
-    {Title:"Driver arrived!", Detail:"Your driver has arrived at your location", Time: "00:12", rideID: 0},
-    {Title:"Ride accepted!", Detail:"Your driver is on their way to your destination", Time: "00:00", rideID: 0},
+   
 ]); 
 
 export const CurrentUser = writable(0);
@@ -67,7 +59,7 @@ export const Users = writable([
                 status:"Ride Finished and paid for."
             },
             {
-                id:0,
+                id:1,
                 origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
                 destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
                 travelTime:"6mins", 
@@ -77,7 +69,7 @@ export const Users = writable([
                 status:"Ride Finished and paid for."
             },
             {
-                id:0,
+                id:2,
                 origin:{name:"Sheffield", coords:{lat:53.52644, lng:-1.63132}}, 
                 destination:{name:"Meadowhall", coords:{lat:53.41438, lng:-1.4113328}},
                 travelTime:"6mins", 
